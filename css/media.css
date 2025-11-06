@@ -1,0 +1,89 @@
+@media (min-width: 400px) {
+  header {
+    padding: 40px;
+    
+  }
+  header h1 {
+    font-size: 50px;
+  }
+
+  header nav ul li {
+    font-size: 50px;
+    margin-right: 40px;
+  }
+
+  h2 {
+    font-size: 69px;
+  }
+  h3 {
+    font-size: 61px;
+  }
+  .plans {
+    border-radius: 30px;
+    border-width: 3px;
+    padding: 30px;
+  }
+  h4 {
+    font-size: 52px;
+
+  }
+
+  .plans p {
+    font-size: 50px;
+    margin: 40px;
+  }
+  marquee {
+    font-size: 50px;
+    margin: 40px;
+  }
+
+  .viewButton {
+    font-size: 50px;
+    border-radius: 30px;
+  }
+  #BuyNow {
+    font-size: 60px;
+    border-radius: 30px;
+  }
+    .close {
+    right:10%;
+  }
+}
+
+@media (min-width: 600px) {
+  header {
+    
+  }
+  header h1 {
+    font-size: 60px;
+  }
+  .close {
+    right:10%;
+  }
+}
+
+@media (min-width: 800px) {
+  header {
+  }
+    .close {
+    right:10%;
+  }
+}
+
+@media (min-width: 1000px) {
+  header {
+    
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    
+  }
+}
+
+@media (min-width: 1500px) {
+  header {
+    
+  }
+}

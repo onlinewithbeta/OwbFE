@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Onlinewithbeta - Buy Data & Airtime</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <style>
+  :root {
+   --primary: #8B4100;
+   --primary-light: #a85a1a;
+   --primary-dark: #6B3100;
+   --secondary: #734C00;
+   --white: #fff;
+   --light-gray: #f5f5f5;
+   --dark-gray: #333;
+   --success: #28a745;
+   --warning: #ffc107;
+   --danger: #dc3545;
+   --header-height: 4em;
+   --card-radius: 16px;
+   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+   background-color: var(--light-gray);
+   color: var(--dark-gray);
+   line-height: 1.6;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+  }
+  
+  /* Header Styles */
+  .mainHeader {
+   height: var(--header-height);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 1.5rem;
+   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+   color: var(--white);
+   box-shadow: var(--shadow);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+  }
+  
+  .logo {
+   display: flex;
+   align-items: center;
+   gap: 0.8rem;
+   text-decoration: none;
+   color: var(--white);
+  }
+  
+  .logo img {
+   width: 2.8rem;
+   height: 2.8rem;
+   border-radius: 50%;
+   object-fit: cover;
+   border: 2px solid var(--white);
+  }
+  
+  .brandName {
+   font-size: 1.5rem;
+   font-weight: 700;
+   letter-spacing: 0.5px;
+  }
+  
+  .brandName:first-letter {
+   font-size: 1.7rem;
+   font-weight: 500;
+  }
+  
+  .navMenu {
+   display: flex;
+   gap: 1.5rem;
+   align-items: center;
+  }
+  
+  .navLink {
+   color: var(--white);
+   text-decoration: none;
+   font-weight: 500;
+   transition: all 0.3s;
+   padding: 0.5rem 1rem;
+   border-radius: 6px;
+  }
+  
+  .navLink:hover {
+   background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .authButtons {
+   display: flex;
+   gap: 1rem;
+  }
+  
+  .btn {
+   padding: 0.6rem 1.2rem;
+   border-radius: 8px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all 0.3s;
+   text-decoration: none;
+   display: inline-block;
+   text-align: center;
+  }
+  
+  .btn-outline {
+   background: transparent;
+   color: var(--white);
+   border: 2px solid var(--white);
+  }
+  
+  .btn-outline:hover {
+   background: var(--white);
+   color: var(--primary);
+  }
+  
+  .btn-primary {
+   background: var(--white);
+   color: var(--primary);
+   border: 2px solid var(--white);
+  }
+  
+  .btn-primary:hover {
+   background: transparent;
+   color: var(--white);
+  }
+  
+  /* Hero Section */
+  .hero {
+   padding: 4rem 1.5rem;
+   background: linear-gradient(rgba(139, 65, 0, 0.9), rgba(107, 49, 0, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+   background-size: cover;
+   background-position: center;
+   color: var(--white);
+   text-align: center;
+  }
+  
+  .heroContent {
+   max-width: 800px;
+   margin: 0 auto;
+  }
+  
+  .heroTitle {
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+   font-weight: 700;
+  }
+  
+  .heroSubtitle {
+   font-size: 1.2rem;
+   margin-bottom: 2rem;
+   opacity: 0.9;
+  }
+  
+  .heroButtons {
+   display: flex;
+   gap: 1rem;
+   justify-content: center;
+   flex-wrap: wrap;
+  }
+  
+  .btn-large {
+   padding: 0.8rem 2rem;
+   font-size: 1.1rem;
+  }
+  
+  /* Features Section */
+  .features {
+   padding: 4rem 1.5rem;
+   max-width: 1200px;
+   margin: 0 auto;
+  }
+  
+  .sectionTitle {
+   text-align: center;
+   font-size: 2rem;
+   margin-bottom: 3rem;
+   color: var(--primary-dark);
+   font-weight: 600;
+  }
+  
+  .featuresGrid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+  }
+  
+  .featureCard {
+   background: var(--white);
+   border-radius: var(--card-radius);
+   padding: 2rem;
+   box-shadow: var(--shadow);
+   text-align: center;
+   transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .featureCard:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .featureIcon {
+   font-size: 3rem;
+   color: var(--primary);
+   margin-bottom: 1.5rem;
+  }
+  
+  .featureTitle {
+   font-size: 1.5rem;
+   margin-bottom: 1rem;
+   color: var(--primary-dark);
+  }
+  
+  .featureDescription {
+   color: var(--dark-gray);
+   opacity: 0.8;
+  }
+  
+  /* Networks Section */
+  .networks {
+   padding: 4rem 1.5rem;
+   background-color: var(--white);
+  }
+  
+  .networksContainer {
+   max-width: 1200px;
+   margin: 0 auto;
+  }
+  
+  .networkGrid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 2rem;
+  }
+  
+  .networkCard {
+   background: var(--light-gray);
+   border-radius: var(--card-radius);
+   padding: 2rem;
+   text-align: center;
+   transition: all 0.3s;
+  }
+  
+  .networkCard:hover {
+   transform: translateY(-5px);
+   box-shadow: var(--shadow);
+  }
+  
+  .networkIcon {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+   font-weight: bold;
+   font-size: 1.5rem;
+   margin: 0 auto 1.5rem;
+  }
+  
+  .mtn {
+   background-color: #ffcc00;
+   color: black;
+  }
+  
+  .airtel {
+   background-color: #e61601;
+  }
+  
+  .glo {
+   background-color: #00a859;
+  }
+  
+  .etisalat {
+   background-color: #663399;
+  }
+  
+  .networkName {
+   font-size: 1.5rem;
+   font-weight: 600;
+   margin-bottom: 1rem;
+   color: var(--primary-dark);
+  }
+  
+  .networkDescription {
+   color: var(--dark-gray);
+   opacity: 0.8;
+  }
+  
+  /* Footer */
+  .footer {
+   background: var(--primary-dark);
+   color: var(--white);
+   padding: 3rem 1.5rem;
+   margin-top: auto;
+  }
+  
+  .footerContent {
+   max-width: 1200px;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 2rem;
+  }
+  
+  .footerSection h3 {
+   margin-bottom: 1.5rem;
+   font-size: 1.3rem;
+  }
+  
+  .footerLinks {
+   list-style: none;
+  }
+  
+  .footerLinks li {
+   margin-bottom: 0.8rem;
+  }
+  
+  .footerLinks a {
+   color: var(--white);
+   text-decoration: none;
+   opacity: 0.8;
+   transition: opacity 0.3s;
+  }
+  
+  .footerLinks a:hover {
+   opacity: 1;
+  }
+  
+  .copyright {
+   text-align: center;
+   margin-top: 3rem;
+   padding-top: 1.5rem;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+   opacity: 0.7;
+  }
+  
+  /* Auth Pages */
+  .authContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: calc(100vh - var(--header-height));
+   padding: 2rem 1.5rem;
+   background: linear-gradient(rgba(139, 65, 0, 0.05), rgba(107, 49, 0, 0.05));
+  }
+  
+  .authCard {
+   background: var(--white);
+   border-radius: var(--card-radius);
+   padding: 2.5rem;
+   box-shadow: var(--shadow);
+   width: 100%;
+   max-width: 450px;
+  }
+  
+  .authHeader {
+   text-align: center;
+   margin-bottom: 2rem;
+  }
+  
+  .authTitle {
+   font-size: 2rem;
+   color: var(--primary-dark);
+   margin-bottom: 0.5rem;
+  }
+  
+  .authSubtitle {
+   color: var(--dark-gray);
+   opacity: 0.7;
+  }
+  
+  .formGroup {
+   margin-bottom: 1.5rem;
+  }
+  
+  .formLabel {
+   display: block;
+   margin-bottom: 0.5rem;
+   font-weight: 500;
+   color: var(--dark-gray);
+  }
+  
+  .formInput {
+   width: 100%;
+   padding: 0.8rem 1rem;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   font-size: 1rem;
+   transition: border-color 0.3s;
+  }
+  
+  .formInput:focus {
+   outline: none;
+   border-color: var(--primary);
+   box-shadow: 0 0 0 2px rgba(139, 65, 0, 0.2);
+  }
+  
+  .phone-input {
+   display: flex;
+   align-items: center;
+  }
+  
+  .phone-prefix {
+   padding: 0.8rem 0.5rem;
+   background-color: var(--light-gray);
+   border: 1px solid #ddd;
+   border-right: none;
+   border-radius: 8px 0 0 8px;
+   font-weight: 500;
+  }
+  
+  .phone-input .form-input {
+   border-radius: 0 8px 8px 0;
+  }
+  
+  .authActions {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1.5rem;
+  }
+  
+  .rememberMe {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+  }
+  
+  .forgotPassword {
+   color: var(--primary);
+   text-decoration: none;
+   font-size: 0.9rem;
+  }
+  
+  .forgotPassword:hover {
+   text-decoration: underline;
+  }
+  
+  .btn-full {
+   width: 100%;
+   padding: 0.8rem;
+   background: var(--primary);
+   color: var(--white);
+   border: none;
+   border-radius: 8px;
+   font-size: 1rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background 0.3s;
+  }
+  
+  .btn-full:hover {
+   background: var(--primary-dark);
+  }
+  
+  .authFooter {
+   text-align: center;
+   margin-top: 1.5rem;
+   color: var(--dark-gray);
+  }
+  
+  .authLink {
+   color: var(--primary);
+   text-decoration: none;
+   font-weight: 500;
+  }
+  
+  .authLink:hover {
+   text-decoration: underline;
+  }
+  
+  /* Mobile Navigation */
+  .mobileMenuBtn {
+   display: none;
+   background: none;
+   border: none;
+   color: var(--white);
+   font-size: 1.5rem;
+   cursor: pointer;
+  }
+  
+  .mobileNav {
+   display: none;
+   position: fixed;
+   top: var(--header-height);
+   left: 0;
+   width: 100%;
+   background: var(--primary-dark);
+   padding: 1rem;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   z-index: 99;
+  }
+  
+  .mobileNav.active {
+   display: block;
+  }
+  
+  .mobileNavMenu {
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+  }
+  
+  .mobileNavLink {
+   color: var(--white);
+   text-decoration: none;
+   font-weight: 500;
+   padding: 0.5rem 0;
+   display: block;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+   .navMenu {
+    display: none;
+   }
+   
+   .mobileMenuBtn {
+    display: block;
+   }
+   
+   .heroTitle {
+    font-size: 2rem;
+   }
+   
+   .heroSubtitle {
+    font-size: 1rem;
+   }
+   
+   .heroButtons {
+    flex-direction: column;
+    align-items: center;
+   }
+   
+   .authCard {
+    padding: 2rem;
+   }
+  }
+  
+  @media (max-width: 480px) {
+   .mainHeader {
+    padding: 0 1rem;
+   }
+   
+   .brandName {
+    font-size: 1.3rem;
+   }
+   
+   .hero {
+    padding: 3rem 1rem;
+   }
+   
+   .features, .networks {
+    padding: 3rem 1rem;
+   }
+   
+   .featureCard, .networkCard {
+    padding: 1.5rem;
+   }
+  }
+ </style>
+</head>
+
+<body>
+ <!-- Homepage -->
+ <div id="homepage">
+  <header class="mainHeader">
+   <a href="#" class="logo">
+    <img src="/IMG/icon.png" alt="Onlinewithbeta Logo">
+    <span class="brandName">Onlinewithbeta</span>
+   </a>
+   
+   <nav class="navMenu">
+    <a href="#features" class="navLink">Features</a>
+    <a href="#networks" class="navLink">Networks</a>
+    <a href="#about" class="navLink">About</a>
+    <div class="authButtons">
+     <a href="#" class="btn btn-outline" onclick="showPage('signin')">Sign In</a>
+     <a href="#" class="btn btn-primary" onclick="showPage('signup')">Sign Up</a>
+    </div>
+   </nav>
+   
+   <button class="mobileMenuBtn" id="mobileMenuToggle">
+    <i class="fas fa-bars"></i>
+   </button>
+  </header>
+  
+  <nav class="mobileNav" id="mobileNav">
+   <ul class="mobileNavMenu">
+    <li><a href="#features" class="mobileNavLink">Features</a></li>
+    <li><a href="#networks" class="mobileNavLink">Networks</a></li>
+    <li><a href="#about" class="mobileNavLink">About</a></li>
+    <li><a href="#" class="mobileNavLink" onclick="showPage('signin')">Sign In</a></li>
+    <li><a href="#" class="mobileNavLink" onclick="showPage('signup')">Sign Up</a></li>
+   </ul>
+  </nav>
+  
+  <section class="hero">
+   <div class="heroContent">
+    <h1 class="heroTitle">Affordable Data & Airtime For Everyone</h1>
+    <p class="heroSubtitle">Purchase high-quality data bundles and airtime at the best prices. Fast, reliable, and secure transactions.</p>
+    <div class="heroButtons">
+     <a href="#" class="btn btn-primary btn-large" onclick="showPage('signup')">Get Started</a>
+     <a href="#networks" class="btn btn-outline btn-large">View Networks</a>
+    </div>
+   </div>
+  </section>
+  
+  <section class="features" id="features">
+   <h2 class="sectionTitle">Why Choose Onlinewithbeta?</h2>
+   <div class="featuresGrid">
+    <div class="featureCard">
+     <i class="fas fa-bolt featureIcon"></i>
+     <h3 class="featureTitle">Instant Delivery</h3>
+     <p class="featureDescription">Your data and airtime are delivered instantly after payment confirmation.</p>
+    </div>
+    <div class="featureCard">
+     <i class="fas fa-tag featureIcon"></i>
+     <h3 class="featureTitle">Best Prices</h3>
+     <p class="featureDescription">We offer the most competitive prices for data bundles and airtime recharge.</p>
+    </div>
+    <div class="featureCard">
+     <i class="fas fa-shield-alt featureIcon"></i>
+     <h3 class="featureTitle">Secure Payments</h3>
+     <p class="featureDescription">Your transactions are protected with industry-standard security measures.</p>
+    </div>
+   </div>
+  </section>
+  
+  <section class="networks" id="networks">
+   <div class="networksContainer">
+    <h2 class="sectionTitle">Supported Networks</h2>
+    <div class="networkGrid">
+     <div class="networkCard">
+      <div class="networkIcon mtn">M</div>
+      <h3 class="networkName">MTN</h3>
+      <p class="networkDescription">Affordable data plans and airtime for MTN subscribers.</p>
+     </div>
+     <div class="networkCard">
+      <div class="networkIcon airtel">A</div>
+      <h3 class="networkName">Airtel</h3>
+      <p class="networkDescription">Competitive rates for Airtel data and airtime services.</p>
+     </div>
+     <div class="networkCard">
+      <div class="networkIcon glo">G</div>
+      <h3 class="networkName">GLO</h3>
+      <p class="networkDescription">Great value data bundles and airtime for GLO users.</p>
+     </div>
+     <div class="networkCard">
+      <div class="networkIcon etisalat">9</div>
+      <h3 class="networkName">9mobile</h3>
+      <p class="networkDescription">Reliable data and airtime services for 9mobile customers.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+  
+  <footer class="footer" id="about">
+   <div class="footerContent">
+    <div class="footerSection">
+     <h3>Onlinewithbeta</h3>
+     <p>Your trusted partner for affordable data bundles and airtime recharge.</p>
+    </div>
+    <div class="footerSection">
+     <h3>Quick Links</h3>
+     <ul class="footerLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#networks">Networks</a></li>
+      <li><a href="#" onclick="showPage('signup')">Sign Up</a></li>
+      <li><a href="#" onclick="showPage('signin')">Sign In</a></li>
+     </ul>
+    </div>
+    <div class="footerSection">
+     <h3>Support</h3>
+     <ul class="footerLinks">
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">FAQs</a></li>
+     </ul>
+    </div>
+   </div>
+   <div class="copyright">
+    &copy; 2025 Onlinewithbeta. All rights reserved.
+   </div>
+  </footer>
+ </div>
+ 
+ <!-- Sign Up Page -->
+ <div id="signup" class="authContainer" style="display: none;">
+  <div class="authCard">
+   <div class="authHeader">
+    <h1 class="authTitle">Create Account</h1>
+    <p class="authSubtitle">Join Onlinewithbeta today</p>
+   </div>
+   
+   <form id="signupForm">
+    <div class="formGroup">
+     <label for="signupUsername" class="formLabel">Username</label>
+     <input type="text" id="signupUsername" class="formInput" placeholder="Choose a username" required>
+    </div>
+    
+    <div class="formGroup">
+     <label for="signupEmail" class="formLabel">Email Address</label>
+     <input type="email" id="signupEmail" class="formInput" placeholder="Enter your email" required>
+    </div>
+    
+    <div class="formGroup">
+     <label for="signupPhone" class="formLabel">Phone Number</label>
+     <div class="phone-input">
+      <span class="phone-prefix">+234</span>
+      <input type="tel" id="signupPhone" class="formInput" placeholder="9117624342" maxlength="10" required>
+     </div>
+    </div>
+    
+    <div class="formGroup">
+     <label for="signupPassword" class="formLabel">Password</label>
+     <input type="password" id="signupPassword" class="formInput" placeholder="Create a password" required>
+    </div>
+    
+    <div class="formGroup">
+     <label for="signupConfirmPassword" class="formLabel">Confirm Password</label>
+     <input type="password" id="signupConfirmPassword" class="formInput" placeholder="Confirm your password" required>
+    </div>
+    
+    <button type="submit" class="btn-full">Create Account</button>
+   </form>
+   
+   <div class="authFooter">
+    <p>Already have an account? <a href="#" class="authLink" onclick="showPage('signin')">Sign In</a></p>
+   </div>
+  </div>
+ </div>
+ 
+ <!-- Sign In Page -->
+ <div id="signin" class="authContainer" style="display: none;">
+  <div class="authCard">
+   <div class="authHeader">
+    <h1 class="authTitle">Welcome Back</h1>
+    <p class="authSubtitle">Sign in to your account</p>
+   </div>
+   
+   <form id="signinForm">
+    <div class="formGroup">
+     <label for="signinUsername" class="formLabel">Username or Email</label>
+     <input type="text" id="signinUsername" class="formInput" placeholder="Enter your username or email" required>
+    </div>
+    
+    <div class="formGroup">
+     <label for="signinPassword" class="formLabel">Password</label>
+     <input type="password" id="signinPassword" class="formInput" placeholder="Enter your password" required>
+    </div>
+    
+    <div class="authActions">
+     <div class="rememberMe">
+      <input type="checkbox" id="rememberMe">
+      <label for="rememberMe">Remember me</label>
+     </div>
+     <a href="#" class="forgotPassword" onclick="showPage('forgotPassword')">Forgot Password?</a>
+    </div>
+    
+    <button type="submit" class="btn-full">Sign In</button>
+   </form>
+   
+   <div class="authFooter">
+    <p>Don't have an account? <a href="#" class="authLink" onclick="showPage('signup')">Sign Up</a></p>
+   </div>
+  </div>
+ </div>
+ 
+ <!-- Forgot Password Page -->
+ <div id="forgotPassword" class="authContainer" style="display: none;">
+  <div class="authCard">
+   <div class="authHeader">
+    <h1 class="authTitle">Reset Password</h1>
+    <p class="authSubtitle">Enter your email to reset your password</p>
+   </div>
+   
+   <form id="forgotPasswordForm">
+    <div class="formGroup">
+     <label for="resetEmail" class="formLabel">Email Address</label>
+     <input type="email" id="resetEmail" class="formInput" placeholder="Enter your email" required>
+    </div>
+    
+    <button type="submit" class="btn-full">Send Reset Link</button>
+   </form>
+   
+   <div class="authFooter">
+    <p>Remember your password? <a href="#" class="authLink" onclick="showPage('signin')">Sign In</a></p>
+   </div>
+  </div>
+ </div>
+ 
+ <script>
+  // Page navigation
+  function showPage(pageId) {
+   // Hide all pages
+   document.getElementById('homepage').style.display = 'none';
+   document.getElementById('signup').style.display = 'none';
+   document.getElementById('signin').style.display = 'none';
+   document.getElementById('forgotPassword').style.display = 'none';
+   
+   // Show selected page
+   document.getElementById(pageId).style.display = 'flex';
+   
+   // Close mobile menu if open
+   document.getElementById('mobileNav').classList.remove('active');
+  }
+  
+  // Mobile menu toggle
+  document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+   document.getElementById('mobileNav').classList.toggle('active');
+  });
+  
+  // Form submissions
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+   e.preventDefault();
+   // In a real app, you would handle form submission here
+   alert('Account created successfully! You can now sign in.');
+   showPage('signin');
+  });
+  
+  document.getElementById('signinForm').addEventListener('submit', function(e) {
+   e.preventDefault();
+   // In a real app, you would handle authentication here
+   alert('Sign in successful! Redirecting to dashboard...');
+   // Redirect to dashboard would happen here
+   // window.location.href = 'dashboard.html';
+  });
+  
+  document.getElementById('forgotPasswordForm').addEventListener('submit', function(e) {
+   e.preventDefault();
+   // In a real app, you would handle password reset here
+   alert('Password reset link sent to your email!');
+   showPage('signin');
+  });
+  
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.mobileNavLink').forEach(link => {
+   link.addEventListener('click', function() {
+    document.getElementById('mobileNav').classList.remove('active');
+   });
+  });
+ </script>
+</body>
+
+</html>
