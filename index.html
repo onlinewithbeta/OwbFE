@@ -1129,68 +1129,68 @@
  
  <script>
   // Data plans for different networks
-const dataPlans = {
- mtn: [
-  { "data": "500mb", "price": 450, "days": 7, "id": 165, "type": "gift" },
-  { "data": "1GB", "price": 600, "days": 7, "id": 166, "type": "gift" },
-  { "data": "1GB", "price": 600, "days": 7, "id": 1, "type": "sme" },
-  { "data": "1GB", "price": 650, "days": 30, "id": 2, "type": "sme" },
-  { "data": "2GB", "price": 1300, "days": 30, "id": 3, "type": "sme" },
-  { "data": "3GB", "price": 1950, "days": 30, "id": 4, "type": "sme" },
-  { "data": "5GB", "price": 2900, "days": 30, "id": 5, "type": "sme" },
-  { "data": "0.5GB", "price": 550, "days": 7, "id": 7, "type": "CG" },
-  { "data": "1GB", "price": 850, "days": 7, "id": 112, "type": "CG" },
-  { "data": "11GB", "price": 3650, "days": 7, "id": 136, "type": "CG" },
-  { "data": "2GB", "price": 1600, "days": 30, "id": 122, "type": "CG" },
-  { "data": "2.7GB", "price": 2200, "days": 30, "id": 123, "type": "CG" },
-  { "data": "3.5GB", "price": 2600, "days": 30, "id": 124, "type": "CG" }
- ],
- 
- 
- 
- 
- airtel: [
- { "data": "300mb", "price": 200, "days": 2, "id": 188, "type": "gifting" },
- { "data": "300mb", "price": 240, "days": 2, "id": 169, "type": "CG" },
- { "data": "0.6GB", "price": 400, "days": 2, "id": 96, "type": "gifting" },
- { "data": "1GB", "price": 450, "days": 1, "id": 137, "type": "gifting" },
- { "data": "1.5GB", "price": 480, "days": 1, "id": 138, "type": "gifting" },
- { "data": "1.5GB", "price": 550, "days": 1, "id": 139, "type": "gifting" },
- { "data": "600mb", "price": 400, "days": 2, "id": 170, "type": "CG" },
- { "data": "1.5GB", "price": 600, "days": 1, "id": 173, "type": "CG" },
- { "data": "500mb", "price": 550, "days": 7, "id": 115, "type": "SME" },
- { "data": "1GB", "price": 850, "days": 7, "id": 116, "type": "SME" },
- { "data": "2GB", "price": 1550, "days": 30, "id": 127, "type": "SME" },
- { "data": "3GB", "price": 2050, "days": 30, "id": 128, "type": "SME" },
- { "data": "3GB", "price": 800, "days": 2, "id": 140, "type": "gifting" },
- { "data": "3GB", "price": 850, "days": 2, "id": 174, "type": "CG" },
- { "data": "5GB", "price": 1550, "days": 7, "id": 147, "type": "gifting" },
- { "data": "5GB", "price": 1650, "days": 7, "id": 168, "type": "CG" },
- { "data": "10GB", "price": 3250, "days": 30, "id": 101, "type": "CG" }, 
- { "data": "10GB", "price": 3500, "days": 30, "id": 167, "type": "CG" },
- { "data": "10GB", "price": 4300, "days": 30, "id": 130, "type": "SME" }
-],
- 
- glo: [
- { "data": "0.5GB", "price": 240, "days": 30, "id": 46, "type": "CG" },
- { "data": "1GB", "price": 450, "days": 30, "id": 47, "type": "CG" },
- { "data": "1GB", "price": 320, "days": 7, "id": 183, "type": "gifting" },
- { "data": "2GB", "price": 900, "days": 30, "id": 48, "type": "CG" },
- { "data": "3GB", "price": 1300, "days": 30, "id": 49, "type": "CG" },
- { "data": "5GB", "price": 2300, "days": 30, "id": 50, "type": "CG" },
- { "data": "10GB", "price": 4500, "days": 30, "id": 51, "type": "CG" },
- { "data": "1GB", "price": 450, "days": 14, "id": 176, "type": "sme" },
- { "data": "3GB", "price": 1200, "days": 14, "id": 177, "type": "sme" },
- { "data": "5GB", "price": 1950, "days": 14, "id": 178, "type": "sme" },
- { "data": "10GB", "price": 4000, "days": 14, "id": 179, "type": "sme" },
- { "data": "1GB", "price": 330, "days": 3, "id": 180, "type": "gifting" },
- { "data": "3GB", "price": 1000, "days": 3, "id": 181, "type": "gifting" },
- { "data": "5GB", "price": 1600, "days": 3, "id": 182, "type": "gifting" }
-],
- "9mobile": [
-  { data: null, price: null, days: null, id: null },
- ]
-};
+  const dataPlans = {
+   mtn: [
+    { "data": "500mb", "price": 450, "days": 7, "id": 165, "type": "gift" },
+    { "data": "1GB", "price": 600, "days": 7, "id": 166, "type": "gift" },
+    { "data": "1GB", "price": 600, "days": 7, "id": 1, "type": "sme" },
+    { "data": "1GB", "price": 650, "days": 30, "id": 2, "type": "sme" },
+    { "data": "2GB", "price": 1300, "days": 30, "id": 3, "type": "sme" },
+    { "data": "3GB", "price": 1950, "days": 30, "id": 4, "type": "sme" },
+    { "data": "5GB", "price": 2900, "days": 30, "id": 5, "type": "sme" },
+    { "data": "0.5GB", "price": 550, "days": 7, "id": 7, "type": "CG" },
+    { "data": "1GB", "price": 850, "days": 7, "id": 112, "type": "CG" },
+    { "data": "11GB", "price": 3650, "days": 7, "id": 136, "type": "CG" },
+    { "data": "2GB", "price": 1600, "days": 30, "id": 122, "type": "CG" },
+    { "data": "2.7GB", "price": 2200, "days": 30, "id": 123, "type": "CG" },
+    { "data": "3.5GB", "price": 2600, "days": 30, "id": 124, "type": "CG" }
+   ],
+   
+   
+   
+   
+   airtel: [
+    { "data": "300mb", "price": 200, "days": 2, "id": 188, "type": "gifting" },
+    { "data": "300mb", "price": 240, "days": 2, "id": 169, "type": "CG" },
+    { "data": "0.6GB", "price": 400, "days": 2, "id": 96, "type": "gifting" },
+    { "data": "1GB", "price": 450, "days": 1, "id": 137, "type": "gifting" },
+    { "data": "1.5GB", "price": 480, "days": 1, "id": 138, "type": "gifting" },
+    { "data": "1.5GB", "price": 550, "days": 1, "id": 139, "type": "gifting" },
+    { "data": "600mb", "price": 400, "days": 2, "id": 170, "type": "CG" },
+    { "data": "1.5GB", "price": 600, "days": 1, "id": 173, "type": "CG" },
+    { "data": "500mb", "price": 550, "days": 7, "id": 115, "type": "SME" },
+    { "data": "1GB", "price": 850, "days": 7, "id": 116, "type": "SME" },
+    { "data": "2GB", "price": 1550, "days": 30, "id": 127, "type": "SME" },
+    { "data": "3GB", "price": 2050, "days": 30, "id": 128, "type": "SME" },
+    { "data": "3GB", "price": 800, "days": 2, "id": 140, "type": "gifting" },
+    { "data": "3GB", "price": 850, "days": 2, "id": 174, "type": "CG" },
+    { "data": "5GB", "price": 1550, "days": 7, "id": 147, "type": "gifting" },
+    { "data": "5GB", "price": 1650, "days": 7, "id": 168, "type": "CG" },
+    { "data": "10GB", "price": 3250, "days": 30, "id": 101, "type": "CG" },
+    { "data": "10GB", "price": 3500, "days": 30, "id": 167, "type": "CG" },
+    { "data": "10GB", "price": 4300, "days": 30, "id": 130, "type": "SME" }
+   ],
+   
+   glo: [
+    { "data": "0.5GB", "price": 240, "days": 30, "id": 46, "type": "CG" },
+    { "data": "1GB", "price": 450, "days": 30, "id": 47, "type": "CG" },
+    { "data": "1GB", "price": 320, "days": 7, "id": 183, "type": "gifting" },
+    { "data": "2GB", "price": 900, "days": 30, "id": 48, "type": "CG" },
+    { "data": "3GB", "price": 1300, "days": 30, "id": 49, "type": "CG" },
+    { "data": "5GB", "price": 2300, "days": 30, "id": 50, "type": "CG" },
+    { "data": "10GB", "price": 4500, "days": 30, "id": 51, "type": "CG" },
+    { "data": "1GB", "price": 450, "days": 14, "id": 176, "type": "sme" },
+    { "data": "3GB", "price": 1200, "days": 14, "id": 177, "type": "sme" },
+    { "data": "5GB", "price": 1950, "days": 14, "id": 178, "type": "sme" },
+    { "data": "10GB", "price": 4000, "days": 14, "id": 179, "type": "sme" },
+    { "data": "1GB", "price": 330, "days": 3, "id": 180, "type": "gifting" },
+    { "data": "3GB", "price": 1000, "days": 3, "id": 181, "type": "gifting" },
+    { "data": "5GB", "price": 1600, "days": 3, "id": 182, "type": "gifting" }
+   ],
+   "9mobile": [
+    { data: null, price: null, days: null, id: null },
+   ]
+  };
   
   
   // Page navigation
@@ -1404,7 +1404,7 @@ const dataPlans = {
     console.log('Signup Form Data:', {
      username,
      email,
-     phone: '+234' + phone,
+     phone: phone,
      password
     });
     
