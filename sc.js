@@ -41,10 +41,44 @@ fund
 
 */
 
+async function request(method, body, path) {
+ try {
+  const apikey = getCookie('apikey') || 23;
+  const baseUrl = apiUrl;
+  const url = baseUrl + path;
+  
+  const options = {
+   method: method,
+   headers: {
+    'apikey': `${apikey}`,
+    'Content-Type': 'application/json'
+   }
+  };
+  
+  if (body && ['POST', 'PUT', 'PATCH'].includes(method.toUpperCase())) {
+   options.body = JSON.stringify(body);
+  }
+  
+  const response = await fetch(url, options);
+  let data = await response.json();
+  
+  if (response.status !== 200 && response.status !== 201) throw new Error(data.message)
+  
+  return data
+ } catch (error) {
+  let msg = error.message;
+  if (msg === 'failed to fetch') msg = 'Bad internet connection.'
+  throw new Error(msg)
+ }
+}
 
-setCookie('apikey',66)
 
-console.log(getCookie('apikey'))
+let apikey = getCookie('apikey')
+
+if (apikey === null) {
+ showAlert('warning', 'Please signin');
+ window.location.herf = './index.html';
+}
 // Sample transaction data
 /*
 const transactions = [
@@ -58,6 +92,7 @@ const transactions = [
  old_balance: '#7000',
  new_balance: '#6500'
 },
+
 {
  'Date': 'April 2, 2025',
  'time': '10:15:30 AM',
@@ -120,18 +155,31 @@ const transactions = [
 }];
 */
 
+
 let transactions = [];
 
+//Function for balance 
+async function getBalance() {
+ try {
+  let balRes = await request('GET', null, '/v1/fund/balance')
+  console.log(balRes)
+  
+  return displayFund(balRes)
+  
+  
+ } catch (e) {
+  console.log(e)
+ }
+ 
+}
+
+function displayFund(bal) {
+ document.getElementById('walletBalance').innerText = `₦${bal}`;
+}
 // Function to show transactions
 async function showTransactions(filter = 'all') {
  try {
-  let res = await fetch(`${apiUrl}/v1/buy/history`);
-  let data = res.json();
-  console.log(res)
-  console.log(data.status)
- // if (res.status !== 200) throw new Error(res)
-  transactions = data;
-  
+  transactions = await request('GET', null, '/v1/buy/history');
   const transactionList = document.getElementById('transactionList');
   transactionList.innerHTML = '';
   
@@ -158,10 +206,10 @@ async function showTransactions(filter = 'all') {
    
    transactionItem.innerHTML = `
       <div class="transactionInfo">
-        <div class="transactionAction">${transaction.action}</div>
+        <div class="transactionAction">${transaction.description}</div>
         <div class="transactionMeta">
-          <span>${transaction.Date}</span>
-          <span>${transaction.time}</span>
+          <span>${transaction.date.start}</span>
+          <span>.</span>
           <span class="transactionId">${transaction.id}</span>
         </div>
       </div>
@@ -175,9 +223,8 @@ async function showTransactions(filter = 'all') {
    transactionList.appendChild(transactionItem);
   });
  } catch (e) {
-  console.log(e)
+  console.log(e.message)
   showAlert('warning', e.message);
-  
  }
 }
 
@@ -216,7 +263,7 @@ function toggleTheme() {
  }
 }
 // Data plans for different networks
-const dataPlans = {
+let dataPlans = {
  mtn: [
  {
   "networkId": 1,
@@ -710,6 +757,10 @@ const dataPlans = {
  }]
 };
 
+async function getPlans() {
+ dataPlans = await request('GET', null, '/v1/buy/plans');
+}
+
 // Navigation functionality
 const menuToggle = document.getElementById('menuToggle');
 const sideNav = document.getElementById('sideNav');
@@ -811,6 +862,14 @@ function showFundWallet() {
  document.getElementById('fundWalletOverlay').style.display = 'block';
 }
 
+
+
+
+
+
+
+
+
 // Event listeners for action buttons
 document.querySelectorAll('.actionBtn').forEach(button => {
  button.addEventListener('click', function(e) {
@@ -826,6 +885,9 @@ document.querySelectorAll('.actionBtn').forEach(button => {
   }
  });
 });
+
+
+
 
 // Fund wallet button
 document.getElementById('fundWalletBtn').addEventListener('click', showFundWallet);
@@ -898,8 +960,17 @@ document.getElementById('showContact').addEventListener('click', function() {
  document.getElementById('contactOverlay').style.display = 'block';
 });
 
+
+
+
+
+
+
+
+
+
 // Buy button event listeners
-document.getElementById('buyAirtimeBtn').addEventListener('click', function() {
+document.getElementById('buyAirtimeBtn').addEventListener('click', async function() {
  const buyAirtimeLoading = showLoading('Airtime Purchase')
  const amount = document.getElementById('airtimeAmount').value;
  const phone = document.getElementById('airtimePhone').value;
@@ -926,14 +997,37 @@ document.getElementById('buyAirtimeBtn').addEventListener('click', function() {
  }
  
  // In a real app, you would process the payment here
- showAlert('confirm', `Processing ${network} airtime purchase:\nAmount: ₦${amount}\nPhone: +234${phone}`, () => {
+ showAlert('confirm', `Processing ${network} airtime purchase:\nAmount: ₦${amount}\nPhone: +234${phone}`, async () => {
   console.log({
    network,
    amount,
    phone
   })
   
+  try {
+   let buyRes = await request('POST', {
+     network: network,
+     amount: amount,
+     phone: phone,
+    },
+    '/v1/buy/airtime'
+   );
+   console.log(buyRes)
+   hideLoading(buyAirtimeLoading)
+   showAlert('success', buyRes.message)
+  } catch (e) {
+   hideLoading(buyAirtimeLoading)
+   console.log(e.message)
+   showAlert('warning', e.message)
+  }
+  
+  hideLoading(buyAirtimeLoading)
+  
+  
+  
  });
+ 
+ 
  hideLoading(buyAirtimeLoading)
  
  // Close overlay
@@ -967,8 +1061,28 @@ document.getElementById('buyDataBtn').addEventListener('click', async function()
  updateLoading(buyDataLoading, 'message', 'Purchasing data')
  
  // In a real app, you would process the payment here
- showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, () => {
+ showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, async () => {
   console.log({ network, planId, phone })
+  
+  try {
+   let buyRes = await request('POST', {
+     network: network,
+     planId: Number(planId),
+     phone: phone,
+    },
+    '/v1/buy/data'
+   );
+   console.log(buyRes)
+   hideLoading(buyDataLoading)
+   showAlert('success', buyRes.message)
+  } catch (e) {
+   hideLoading(buyDataLoading)
+   console.log(e.message)
+   showAlert('warning', e.message)
+  }
+  
+  hideLoading(buyDataLoading)
+  
  });
  
  hideLoading(buyDataLoading)
@@ -996,9 +1110,29 @@ document.getElementById('proceedFundWallet').addEventListener('click', async fun
  hideLoading(proceedFundWalletLoader, 1200)
  
  // In a real app, you would process the payment here
- await showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, () => {
+ await showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, async () => {
   
   console.log({ amount });
+  
+  //tryit
+  try {
+   let fundRes = await request('POST', {
+     amount: amount,
+    },
+    '/v1/fund'
+   );
+   console.log(fundRes)
+   hideLoading(proceedFundWalletLoader)
+   showAlert('success', fundRes.message, () => window.location.herf = 'google.com')
+  } catch (e) {
+   hideLoading(proceedFundWalletLoader)
+   console.log(e.message)
+   showAlert('warning', e.message)
+  }
+  
+  hideLoading(proceedFundWalletLoader)
+  
+  
  });
  
  console.log('no time');
@@ -1021,6 +1155,8 @@ document.querySelectorAll('.payment-method').forEach(method => {
   this.classList.add('active');
  });
 });
+
+
 
 // Close overlays when clicking outside content
 window.addEventListener('click', function(e) {
@@ -1049,6 +1185,13 @@ window.addEventListener('click', function(e) {
   contactOverlay.style.display = 'none';
  }
 });
+
+
+
+
+
+
+
 
 // Custom alert function
 function showAlert(kind, message, okFunction = null, showCancel = false) {
@@ -1190,6 +1333,9 @@ function closeAlert(alertElement) {
 }
 
 
+
+
+
 //Loading 
 // Loading component function
 function showLoading(message = 'Loading...', showProgress = false, size = 'default') {
@@ -1265,6 +1411,9 @@ function hideLoading(loadingElement, delay = 0) {
 
 
 // Initialize transactions on page load
-document.addEventListener('DOMContentLoaded', function() {
- showTransactions();
+document.addEventListener('DOMContentLoaded', async function() {
+ await showTransactions();
+ await getPlans();
+ await getBalance();
+ 
 });
