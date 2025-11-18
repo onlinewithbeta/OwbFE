@@ -1321,7 +1321,7 @@
   <nav class="sideNav" id="sideNav">
    <div class="navHeader">
     <div class="walletLabel">Wallet Balance</div>
-    <div id="walletBalance" class="walletBalance">₦5,430.00</div>
+    <div id="walletBalance" class="walletBalance">₦0.00</div>
     <button class="btn btn-buy" id="fundWalletBtn" style="margin-top: 0.5rem;">
      <i class="fas fa-plus"></i> Fund Wallet
     </button>
@@ -1757,7 +1757,7 @@
   if (!apikey.includes('OWB')) {
    showAlert('warning', 'Please signin');
    
-  window.location.href = 'https://onlinewithbeta.name.ng';
+   window.location.href = 'https://onlinewithbeta.name.ng';
   }
   // Sample transaction data
   /*
@@ -3111,10 +3111,22 @@
   
   // Initialize transactions on page load
   document.addEventListener('DOMContentLoaded', async function() {
+ try{
+  
+   let pageLoader = showLoading('Loading page', true)
+   updateLoading(pageLoader, message, "Loading transactions")
    await showTransactions();
+   updateLoading(pageLoader, message, "Loading Plans")
+   
    await getPlans();
+   updateLoading(pageLoader, message, "Loading wallet Balance")
    await getBalance();
    
+   hideLoading(pageLoader)
+ }catch(e){
+  showAlert('warning',e.message)
+ }
+
   });
  </script>
 </body>
