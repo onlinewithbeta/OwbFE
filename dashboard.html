@@ -1677,8 +1677,9 @@
  
  
  <script type="text/javascript" charset="utf-8">
-  const apiUrl = 'https://api.onlinewithbeta.name.ng';
-  
+//  const apiUrl = 'https://api.onlinewithbeta.name.ng';
+    const apiUrl = 'http://localhost:2025';
+
   function setCookie(cname, cvalue, exdays = 1) {
    const d = new Date();
    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -3113,16 +3114,11 @@
   document.addEventListener('DOMContentLoaded', async function() {
  try{
   
-   let pageLoader = showLoading('Loading page', true)
-   updateLoading(pageLoader, message, "Loading transactions")
    await showTransactions();
-   updateLoading(pageLoader, message, "Loading Plans")
    
    await getPlans();
-   updateLoading(pageLoader, message, "Loading wallet Balance")
    await getBalance();
    
-   hideLoading(pageLoader)
  }catch(e){
   showAlert('warning',e.message)
  }
