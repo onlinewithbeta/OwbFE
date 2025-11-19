@@ -1678,8 +1678,8 @@
  
  <script type="text/javascript" charset="utf-8">
   const apiUrl = 'https://api.onlinewithbeta.name.ng';
-   // const apiUrl = 'http://localhost:2025';
-
+  // const apiUrl = 'http://localhost:2025';
+  
   function setCookie(cname, cvalue, exdays = 1) {
    const d = new Date();
    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -1860,7 +1860,8 @@
   // Function to show transactions
   async function showTransactions(filter = 'all') {
    try {
-    transactions = await request('GET', null, '/v1/buy/history');
+    if (filter === 'all') transactions = await request('GET', null, '/v1/buy/history');
+    
     const transactionList = document.getElementById('transactionList');
     transactionList.innerHTML = '';
     
@@ -2678,7 +2679,7 @@
    }
    
    
-   hideLoading(buyAirtimeLoading)
+   hideLoading(buyAirtimeLoading, 1500)
    // In a real app, you would process the payment here
    showAlert('confirm', `Processing ${network} airtime purchase:\nAmount: ₦${amount}\nPhone: +234${phone}`, async () => {
     console.log({
@@ -2706,7 +2707,6 @@
      showAlert('warning', e.message)
     }
     
-    hideLoading(buyAirtimeLoading)
     
     
     
@@ -2743,10 +2743,9 @@
     return;
    }
    updateLoading(buyDataLoading, 'message', 'Purchasing data')
-   hideLoading(buyDataLoading)
    
    // In a real app, you would process the payment here
-   await showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, async () => {
+   showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, async () => {
     console.log({ network, planId, phone })
     buyDataLoading = showLoading('Purchasing data', true);
     
@@ -2759,8 +2758,8 @@
       '/v1/buy/data'
      );
      console.log(buyRes)
-     hideLoading(buyDataLoading)
      showAlert('success', buyRes.message)
+     hideLoading(buyDataLoading)
     } catch (e) {
      hideLoading(buyDataLoading)
      console.log(e.message)
@@ -2781,6 +2780,9 @@
    document.getElementById('dataPhone').value = '';
   });
   
+  
+  
+  
   // Fund wallet proceed button
   document.getElementById('proceedFundWallet').addEventListener('click', async function() {
    let proceedFundWalletLoader = showLoading('Funding Wallet');
@@ -2793,12 +2795,10 @@
     hideLoading(proceedFundWalletLoader, 1200)
     return;
    }
-   hideLoading(proceedFundWalletLoader, 1200)
    
    // In a real app, you would process the payment here
-   await showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, async () => {
-    proceedFundWalletLoader = showLoading('Funding Wallet');
-    
+   showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, async () => {
+    let getFundLink = showLoading('Funding Wallet');
     
     //tryit
     try {
@@ -2811,18 +2811,19 @@
      console.log(fundRes)
      console.log('fundRes')
      
-     hideLoading(proceedFundWalletLoader)
      if (!fundRes.success) throw new Error('Unable to fund wallet')
      
      showAlert('confirm', 'Continue to pay', () => {
+      let redirect = showLoading('Getting Account numbers');
+      
       let url = fundRes.data.data.authorization_url;
       console.log(url);
       window.location.href = url;
-      
      });
+     hideLoading(getFundLink)
      
     } catch (e) {
-     hideLoading(proceedFundWalletLoader)
+     hideLoading(getFundLink)
      console.log(e.message)
      showAlert('warning', e.message)
     }
@@ -3112,18 +3113,26 @@
   
   // Initialize transactions on page load
   document.addEventListener('DOMContentLoaded', async function() {
- try{
-  
-   await showTransactions();
+   try {
+    
+    await showTransactions();
+    
+    await getPlans();
+    await getBalance();
+    
+   } catch (e) {
+    showAlert('warning', e.message)
+   }
    
-   await getPlans();
-   await getBalance();
-   
- }catch(e){
-  showAlert('warning',e.message)
- }
-
   });
+  
+  async function wakeApi() {
+   //wake api
+   let readyRes = await fetch(apiUrl)
+   console.log(readyRes)
+   if (readyRes.status !== 200) throw new Error("Please try again")
+  }
+  wakeApi()
  </script>
 </body>
 
