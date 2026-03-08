@@ -2,1061 +2,1061 @@
 <html lang="en">
 
 <head>
- <!-- Essential Meta Tags -->
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <meta http-equiv="X-UA-Compatible" content="IE=edge" />
- 
- <!-- Primary Meta Tags for SEO -->
- <title>Onlinewithbeta - Dashboard</title>
- 
- <meta name="description" content="Buy Data & Airtime at affordable rates." />
- <meta name="keywords" content="onlinewithbeta, owb, cheap monthly data,long lasting data" />
- <meta name="author" content="Believe Robert Osiaru" />
- <meta name="robots" content="index, follow" />
- 
- <!-- Open Graph / Facebook -->
- <meta property="og:title" content="Buy Data & Airtime" />
- <meta property="og:description" content="Buy Data & Airtime at affordable rates.." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://onlinewithbeta.name.ng" />
- <meta property="og:image" content="https://onlinewithbeta.name.ng/IMG/icon.png" />
- <meta property="og:site_name" content="Onlinewithbeta" />
- 
- <!-- Twitter -->
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:site" content="@Onlinewithbeta" />
- <meta name="twitter:creator" content="@Onlinewithbeta" />
- <meta name="twitter:title" content="Buy Data & Airtime at affordable rates." />
- <meta name="twitter:description" content="Buy Data & Airtime at affordable rates.." />
- <meta name="twitter:image" content="https://onlinewithbeta.name.ng/IMG/icon.png" />
- 
- <!-- Additional Important Meta Tags -->
- <meta name="theme-color" content="#6B3100" />
- <meta name="msapplication-TileColor" content="#6B3100" />
- <link rel="canonical" href="https://onlinewithbeta.name.ng" />
- 
- <!-- Favicon & App Icons -->
- <link rel="icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" type="image/x-icon" />
- <link rel="shortcut icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" type="image/x-icon" />
- <link rel="apple-touch-icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" />
- 
- <!-- Web App Capable (Optional) -->
- <meta name="apple-mobile-web-app-capable" content="yes" />
- <meta name="apple-mobile-web-app-status-bar-style" content="default" />
- <meta name="apple-mobile-web-app-title" content="onlinewithbeta" />
- 
- <!-- Prevents phone number detection on mobile devices -->
- <meta name="format-detection" content="telephone=no" />
- 
- <!-- SCHEMA.ORG STRUCTURED DATA - CRITICAL FOR GOOGLE -->
- <script type="application/ld+json">
-  {
-   "@context": "https://schema.org",
-   "@type": "WebSite",
-   "name": "onlinewithbeta",
-   "url": "https://onlinewithbeta.name.ng",
-   "description": "Buy Data & Airtime at affordable rates.",
-   "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-     "@type": "EntryPoint",
-     "urlTemplate": "https://onlinewithbeta.name.ng/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-   }
-  }
- </script>
- 
- 
- 
- 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <style>
-  :root {
-   --primary: #8B4100;
-   --primary-light: #a85a1a;
-   --primary-dark: #6B3100;
-   --secondary: #734C00;
-   --white: #fff;
-   --light-gray: #f5f5f5;
-   --dark-gray: #333;
-   --success: #28a745;
-   --warning: #ffc107;
-   --danger: #dc3545;
-   --header-height: 4em;
-   --card-radius: 16px;
-   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-   --nav-width: 250px;
-  }
-  
-  /* Dark theme variables */
-  .dark-theme {
-   --white: #8D8989;
-   --light-gray: #C0C0C1;
-   --dark-gray: #f5f5f5;
-  }
-  
-  * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-   background-color: var(--light-gray);
-   color: var(--dark-gray);
-   line-height: 1.6;
-   display: flex;
-   flex-direction: column;
-   min-height: 100vh;
-   transition: background-color 0.3s, color 0.3s;
-  }
-  
-  /* Header Styles */
-  .appHeader {
-   height: var(--header-height);
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 0 1.5rem;
-   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-   color: var(--white);
-   box-shadow: var(--shadow);
-   position: sticky;
-   top: 0;
-   z-index: 100;
-  }
-  
-  .menuBtn {
-   font-size: 1.5rem;
-   cursor: pointer;
-   transition: transform 0.3s;
-   display: flex;
-   align-items: center;
-   gap: 0.5rem;
-  }
-  
-  .menuBtn:hover {
-   transform: scale(1.1);
-  }
-  
-  .menuBtn img {
-   height: 1.5rem;
-   width: 1.8rem;
-  }
-  
-  .appName {
-   font-size: 1.5rem;
-   font-weight: 700;
-   letter-spacing: 0.5px;
-  }
-  
-  .appName:first-letter {
-   font-size: 1.7rem;
-   font-weight: 500;
-  }
-  
-  .appLogo img {
-   width: 2.8rem;
-   height: 2.8rem;
-   border-radius: 50%;
-   object-fit: cover;
-   border: 2px solid var(--white);
-  }
-  
-  /* Main Layout */
-  .appContainer {
-   display: flex;
-   flex: 1;
-  }
-  
-  /* Side Navigation Styles */
-  .sideNav {
-   width: var(--nav-width);
-   background: linear-gradient(to bottom, var(--primary-dark), var(--primary));
-   color: var(--white);
-   height: calc(100vh - var(--header-height));
-   position: sticky;
-   top: var(--header-height);
-   transition: all 0.3s ease;
-   overflow-y: auto;
-   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-   z-index: 90;
-  }
-  
-  .navHeader {
-   padding: 1.5rem 1rem 1rem;
-   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-   text-align: center;
-  }
-  
-  .walletBalance {
-   font-size: 1.8rem;
-   font-weight: 700;
-   margin: 0.5rem 0;
-   color: #ffcc00;
-  }
-  
-  .walletLabel {
-   font-size: 0.9rem;
-   opacity: 0.8;
-  }
-  
-  .navMenu {
-   list-style: none;
-   padding: 1rem 0;
-  }
-  
-  .navItem {
-   margin-bottom: 0.5rem;
-  }
-  
-  .navLink {
-   display: flex;
-   align-items: center;
-   padding: 0.8rem 1.5rem;
-   color: var(--white);
-   text-decoration: none;
-   transition: all 0.3s;
-   border-left: 4px solid transparent;
-  }
-  
-  .navLink:hover,
-  .navLink.active {
-   background-color: rgba(255, 255, 255, 0.1);
-   border-left-color: #ffcc00;
-   padding-left: 1.8rem;
-  }
-  
-  .navIcon {
-   margin-right: 0.8rem;
-   font-size: 1.2rem;
-   width: 1.5rem;
-   text-align: center;
-  }
-  
-  .navText {
-   font-weight: 500;
-  }
-  
-  /* Theme Toggle Styles */
-  .theme-toggle {
-   display: flex;
-   align-items: center;
-   padding: 0.8rem 1.5rem;
-   cursor: pointer;
-   transition: all 0.3s;
-   border-left: 4px solid transparent;
-  }
-  
-  .theme-toggle:hover {
-   background-color: rgba(255, 255, 255, 0.1);
-   padding-left: 1.8rem;
-  }
-  
-  .toggle-switch {
-   position: relative;
-   display: inline-block;
-   width: 50px;
-   height: 24px;
-   margin-left: auto;
-  }
-  
-  .toggle-switch input {
-   opacity: 0;
-   width: 0;
-   height: 0;
-  }
-  
-  .toggle-slider {
-   position: absolute;
-   cursor: pointer;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background-color: #ccc;
-   transition: .4s;
-   border-radius: 24px;
-  }
-  
-  .toggle-slider:before {
-   position: absolute;
-   content: "";
-   height: 16px;
-   width: 16px;
-   left: 4px;
-   bottom: 4px;
-   background-color: white;
-   transition: .4s;
-   border-radius: 50%;
-  }
-  
-  input:checked+.toggle-slider {
-   background-color: #ffcc00;
-  }
-  
-  input:checked+.toggle-slider:before {
-   transform: translateX(26px);
-  }
-  
-  .toggle-img {
-   height: 8px;
-  }
-  
-  /* Main Content Styles */
-  .appBody {
-   padding: 1.5rem;
-   max-width: 1200px;
-   margin: 0 auto;
-   flex: 1;
-   width: calc(100% - var(--nav-width));
-   transition: all 0.3s ease;
-  }
-  
-  .section-title {
-   margin: 1.5rem 0 1rem;
-   font-size: 1.3rem;
-   color: var(--primary-dark);
-   font-weight: 600;
-  }
-  
-  /* Network Cards */
-  .networkContainer {
-   display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-   gap: 1.5rem;
-  }
-  
-  .networkCard {
-   background: var(--white);
-   border-radius: var(--card-radius);
-   padding: 1.5rem;
-   box-shadow: var(--shadow);
-   transition: transform 0.3s, box-shadow 0.3s;
-   display: flex;
-   flex-direction: column;
-   gap: 1.2rem;
-  }
-  
-  .networkCard:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .networkHeader {
-   display: flex;
-   align-items: center;
-   gap: 1rem;
-  }
-  
-  .networkIcon {
-   width: 3rem;
-   height: 3rem;
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: white;
-   font-weight: bold;
-   font-size: 1.2rem;
-  }
-  
-  .mtn {
-   background-color: #ffcc00;
-   color: black;
-  }
-  
-  .airtel {
-   background-color: #e61601;
-  }
-  
-  .glo {
-   background-color: #00a859;
-  }
-  
-  .etisalat {
-   background-color: #663399;
-  }
-  
-  .networkName {
-   font-size: 1.3rem;
-   font-weight: 600;
-  }
-  
-  .buyActionBtn {
-   display: flex;
-   gap: 1rem;
-  }
-  
-  .actionBtn {
-   flex: 1;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 0.5rem;
-   padding: 0.8rem;
-   border-radius: 10px;
-   background: var(--light-gray);
-   color: var(--primary);
-   cursor: pointer;
-   transition: all 0.3s;
-   border: none;
-   text-decoration: none;
-  }
-  
-  .actionBtn:hover {
-   background: var(--primary);
-   color: white;
-   transform: translateY(-2px);
-  }
-  
-  .actionBtn i {
-   font-size: 1.5rem;
-  }
-  
-  .actionBtn span {
-   font-size: 0.9rem;
-   font-weight: 500;
-  }
-  
-  /* Transaction Container Styles */
-  .transactionContainer {
-   margin-top: 2rem;
-   background: var(--white);
-   border-radius: var(--card-radius);
-   padding: 1.5rem;
-   box-shadow: var(--shadow);
-  }
-  
-  .transactionHeader {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-bottom: 1.5rem;
-   padding-bottom: 1rem;
-   border-bottom: 1px solid var(--light-gray);
-  }
-  
-  .transactionTitle {
-   font-size: 1.3rem;
-   color: var(--primary-dark);
-   font-weight: 600;
-  }
-  
-  .transactionFilters {
-   display: flex;
-   gap: 0.5rem;
-  }
-  
-  .filterBtn {
-   padding: 0.5rem 1rem;
-   border: 1px solid var(--light-gray);
-   background: var(--white);
-   border-radius: 6px;
-   cursor: pointer;
-   transition: all 0.3s;
-   font-size: 0.9rem;
-  }
-  
-  .filterBtn:hover,
-  .filterBtn.active {
-   background: var(--primary);
-   color: white;
-   border-color: var(--primary);
-  }
-  
-  .transactionList {
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
-  }
-  
-  .transactionItem {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 1rem;
-   border-radius: 10px;
-   background: var(--light-gray);
-   transition: all 0.3s;
-  }
-  
-  .transactionItem:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .transactionInfo {
-   flex: 1;
-  }
-  
-  .transactionAction {
-   font-weight: 600;
-   margin-bottom: 0.3rem;
-   color: var(--dark-gray);
-  }
-  
-  .transactionMeta {
-   display: flex;
-   gap: 1rem;
-   font-size: 0.85rem;
-   color: var(--dark-gray);
-   opacity: 0.8;
-  }
-  
-  .transactionId {
-   font-family: monospace;
-   font-size: 0.8rem;
-  }
-  
-  .transactionDetails {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-end;
-   text-align: right;
-  }
-  
-  .transactionCost {
-   font-weight: 700;
-   font-size: 1.1rem;
-   color: var(--primary);
-   margin-bottom: 0.3rem;
-  }
-  
-  .transactionBalance {
-   font-size: 0.85rem;
-   color: var(--dark-gray);
-   opacity: 0.8;
-  }
-  
-  .transactionStatus {
-   padding: 0.3rem 0.8rem;
-   border-radius: 20px;
-   font-size: 0.8rem;
-   font-weight: 600;
-   margin-top: 0.5rem;
-  }
-  
-  .status-pending {
-   background-color: var(--warning);
-   color: #000;
-  }
-  
-  .status-success {
-   background-color: var(--success);
-   color: white;
-  }
-  
-  .status-failed {
-   background-color: var(--danger);
-   color: white;
-  }
-  
-  .no-transactions {
-   text-align: center;
-   padding: 2rem;
-   color: var(--dark-gray);
-   opacity: 0.7;
-  }
-  
-  /* Overlay Styles */
-  .overlay {
-   display: none;
-   position: fixed;
-   top: 0;
-   bottom: 0px;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(66, 68, 90, 0.84);
-   z-index: 200;
-   backdrop-filter: blur(2px);
-  }
-  
-  .overlay-content {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 90%;
-   max-width: 500px;
-   background-color: var(--white);
-   border-radius: var(--card-radius);
-   padding: 2rem;
-   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-   max-height: 90vh;
-   overflow-y: auto;
-  }
-  
-  .overlay-header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-bottom: 1.5rem;
-   padding-bottom: 1rem;
-   border-bottom: 1px solid var(--light-gray);
-  }
-  
-  .overlay-title {
-   font-size: 1.5rem;
-   color: var(--primary-dark);
-   font-weight: 600;
-  }
-  
-  .close-btn {
-   background: none;
-   border: none;
-   font-size: 1.5rem;
-   cursor: pointer;
-   color: var(--dark-gray);
-   transition: color 0.3s;
-  }
-  
-  .close-btn:hover {
-   color: var(--primary);
-  }
-  
-  .plan-list {
-   display: flex;
-   flex-direction: column;
-   gap: 0.8rem;
-   margin-bottom: 1.5rem;
-  }
-  
-  .plan-item {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 1rem;
-   background-color: var(--light-gray);
-   border-radius: 10px;
-   cursor: pointer;
-   transition: all 0.3s;
-  }
-  
-  .plan-item:hover {
-   background-color: var(--primary-light);
-   color: white;
-  }
-  
-  .plan-details {
-   display: flex;
-   flex-direction: column;
-  }
-  
-  .plan-size {
-   font-weight: 600;
-   font-size: 1.1rem;
-  }
-  
-  .plan-duration {
-   font-size: 0.9rem;
-   opacity: 0.8;
-  }
-  
-  .plan-price {
-   font-weight: 600;
-   color: var(--primary);
-  }
-  
-  .plan-item:hover .plan-price {
-   color: white;
-  }
-  
-  .form-group {
-   margin-bottom: 1.5rem;
-  }
-  
-  .form-label {
-   display: block;
-   margin-bottom: 0.5rem;
-   font-weight: 500;
-   color: var(--dark-gray);
-  }
-  
-  .form-input {
-   width: 100%;
-   padding: 0.8rem 1rem;
-   border: 1px solid #ddd;
-   border-radius: 8px;
-   font-size: 1rem;
-   transition: border-color 0.3s;
-  }
-  
-  .form-input:focus {
-   outline: none;
-   border-color: var(--primary);
-   box-shadow: 0 0 0 2px rgba(139, 65, 0, 0.2);
-  }
-  
-  .phone-input {
-   display: flex;
-   align-items: center;
-  }
-  
-  .phone-prefix {
-   padding: 0.8rem 0.5rem;
-   background-color: var(--light-gray);
-   border: 1px solid #ddd;
-   border-right: none;
-   border-radius: 8px 0 0 8px;
-   font-weight: 500;
-  }
-  
-  .phone-input .form-input {
-   border-radius: 0 8px 8px 0;
-  }
-  
-  .action-buttons {
-   display: flex;
-   gap: 1rem;
-   margin-top: 2rem;
-  }
-  
-  .btn {
-   flex: 1;
-   padding: 0.8rem 1.5rem;
-   border: none;
-   border-radius: 8px;
-   font-weight: 600;
-   cursor: pointer;
-   transition: all 0.3s;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 0.5rem;
-  }
-  
-  .btn-cancel {
-   background-color: var(--light-gray);
-   color: var(--dark-gray);
-  }
-  
-  .btn-cancel:hover {
-   background-color: #e0e0e0;
-  }
-  
-  .btn-buy {
-   background-color: var(--primary);
-   color: white;
-  }
-  
-  .btn-buy:hover {
-   background-color: var(--primary-dark);
-   transform: translateY(-2px);
-  }
-  
-  .selected-plan {
-   background-color: var(--primary-light);
-   color: white;
-   padding: 1rem;
-   border-radius: 10px;
-   margin-bottom: 1.5rem;
-   text-align: center;
-   font-weight: 600;
-  }
-  
-  /* Fund Wallet Overlay */
-  .payment-methods {
-   display: flex;
-   gap: 1rem;
-   margin-bottom: 1.5rem;
-  }
-  
-  .payment-method {
-   flex: 1;
-   text-align: center;
-   padding: 1rem;
-   border: 2px solid var(--light-gray);
-   border-radius: 8px;
-   cursor: pointer;
-   transition: all 0.3s;
-  }
-  
-  .payment-method:hover,
-  .payment-method.active {
-   border-color: var(--primary);
-   background-color: rgba(139, 65, 0, 0.05);
-  }
-  
-  .payment-icon {
-   font-size: 2rem;
-   width: 4rem;
-   border-radius: 0.2rem;
-   margin-bottom: 0.5rem;
-   color: var(--primary);
-  }
-  
-  /* Mobile Navigation */
-  .mobileNav {
-   display: none;
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   background: var(--primary-dark);
-   z-index: 100;
-   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .mobileNavMenu {
-   display: flex;
-   list-style: none;
-   justify-content: space-around;
-   padding: 0.5rem 0;
-  }
-  
-  .mobileNavItem {
-   flex: 1;
-   text-align: center;
-  }
-  
-  .mobileNavLink {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding: 0.5rem;
-   color: var(--white);
-   text-decoration: none;
-   font-size: 0.8rem;
-   transition: all 0.3s;
-  }
-  
-  .mobileNavLink:hover,
-  .mobileNavLink.active {
-   color: #ffcc00;
-  }
-  
-  .mobileNavIcon {
-   font-size: 1.2rem;
-   margin-bottom: 0.3rem;
-  }
-  
-  
-  /* Custom Alert Styles */
-  .alert-overlay {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.5);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   z-index: 1000;
-   backdrop-filter: blur(2px);
-  }
-  
-  .alert-box {
-   background-color: var(--white);
-   border-radius: var(--card-radius);
-   box-shadow: var(--shadow);
-   width: 90%;
-   max-width: 400px;
-   overflow: hidden;
-   animation: alertSlideIn 0.3s ease-out;
-  }
-  
-  @keyframes alertSlideIn {
-   from {
-    opacity: 0;
-    transform: translateY(-20px);
-   }
-   
-   to {
-    opacity: 1;
-    transform: translateY(0);
-   }
-  }
-  
-  .alert-header {
-   padding: 1rem 1.5rem;
-   display: flex;
-   align-items: center;
-   gap: 0.75rem;
-   border-bottom: 1px solid var(--light-gray);
-  }
-  
-  .alert-icon {
-   width: 24px;
-   height: 24px;
-   border-radius: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: white;
-   font-size: 0.9rem;
-  }
-  
-  .alert-title {
-   font-weight: 600;
-   font-size: 1.1rem;
-  }
-  
-  .alert-body {
-   padding: 1.5rem;
-  }
-  
-  .alert-message {
-   line-height: 1.5;
-   color: var(--dark-gray);
-  }
-  
-  .alert-footer {
-   padding: 1rem 1.5rem;
-   display: flex;
-   justify-content: flex-end;
-   gap: 0.75rem;
-   border-top: 1px solid var(--light-gray);
-  }
-  
-  .alert-btn {
-   padding: 0.5rem 1.25rem;
-   border: none;
-   border-radius: 6px;
-   font-weight: 500;
-   cursor: pointer;
-   transition: all 0.3s;
-  }
-  
-  .alert-btn-cancel {
-   background-color: var(--light-gray);
-   color: var(--dark-gray);
-  }
-  
-  .alert-btn-cancel:hover {
-   background-color: #e0e0e0;
-  }
-  
-  .alert-btn-ok {
-   background-color: var(--primary);
-   color: white;
-  }
-  
-  .alert-btn-ok:hover {
-   background-color: var(--primary-dark);
-  }
-  
-  /* Alert type styles */
-  .alert-info .alert-icon {
-   background-color: var(--info);
-  }
-  
-  .alert-success .alert-icon {
-   background-color: var(--success);
-  }
-  
-  .alert-warning .alert-icon {
-   background-color: var(--warning);
-  }
-  
-  .alert-confirm .alert-icon {
-   background-color: var(--warning);
-  }
-  
-  .alert-follow .alert-icon {
-   background-color: var(--primary);
-  }
-  
-  /* Stacking alerts */
-  .alert-container {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   pointer-events: none;
-   z-index: 1000;
-  }
-  
-  .alert-container>* {
-   pointer-events: auto;
-  }
-  
-  
-  
-  
-  
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-   .sideNav {
-    width: 220px;
-   }
-   
-   .appBody {
-    width: calc(100% - 220px);
-   }
-  }
-  
-  @media (max-width: 768px) {
-   .sideNav {
-    transform: translateX(-100%);
-    position: fixed;
-    height: 100vh;
-    top: 0;
-    z-index: 150;
-   }
-   
-   .sideNav.active {
-    transform: translateX(0);
-   }
-   
-   .appBody {
-    width: 100%;
-    padding: 1rem;
-   }
-   
-   .networkContainer {
-    grid-template-columns: 1fr;
-    margin-bottom: 4rem;
-   }
-   
-   .mobileNav {
-    display: block;
-   }
-   
-   .overlay-content {
-    width: 95%;
-    padding: 1.5rem;
-   }
-   
-   .payment-methods {
-    flex-direction: column;
-   }
-   
-   .transactionItem {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-   }
-   
-   .transactionDetails {
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-   }
-   
-   .transactionFilters {
-    flex-wrap: wrap;
-   }
-  }
-  
-  @media (max-width: 480px) {
-   .appHeader {
-    padding: 0 1rem;
-   }
-   
-   .appName {
-    font-size: 1.3rem;
-   }
-   
-   /* 
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <!-- Primary Meta Tags for SEO -->
+  <title>Onlinewithbeta - Dashboard</title>
+  
+  <meta name="description" content="Buy Data & Airtime at affordable rates." />
+  <meta name="keywords" content="onlinewithbeta, owb, cheap monthly data,long lasting data" />
+  <meta name="author" content="Believe Robert Osiaru" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Buy Data & Airtime" />
+  <meta property="og:description" content="Buy Data & Airtime at affordable rates.." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://onlinewithbeta.name.ng" />
+  <meta property="og:image" content="https://onlinewithbeta.name.ng/IMG/icon.png" />
+  <meta property="og:site_name" content="Onlinewithbeta" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Onlinewithbeta" />
+  <meta name="twitter:creator" content="@Onlinewithbeta" />
+  <meta name="twitter:title" content="Buy Data & Airtime at affordable rates." />
+  <meta name="twitter:description" content="Buy Data & Airtime at affordable rates.." />
+  <meta name="twitter:image" content="https://onlinewithbeta.name.ng/IMG/icon.png" />
+  
+  <!-- Additional Important Meta Tags -->
+  <meta name="theme-color" content="#6B3100" />
+  <meta name="msapplication-TileColor" content="#6B3100" />
+  <link rel="canonical" href="https://onlinewithbeta.name.ng" />
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="https://onlinewithbeta.name.ng/IMG/icon.png" />
+  
+  <!-- Web App Capable (Optional) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="onlinewithbeta" />
+  
+  <!-- Prevents phone number detection on mobile devices -->
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- SCHEMA.ORG STRUCTURED DATA - CRITICAL FOR GOOGLE -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "onlinewithbeta",
+      "url": "https://onlinewithbeta.name.ng",
+      "description": "Buy Data & Airtime at affordable rates.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://onlinewithbeta.name.ng/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #8B4100;
+      --primary-light: #a85a1a;
+      --primary-dark: #6B3100;
+      --secondary: #734C00;
+      --white: #fff;
+      --light-gray: #f5f5f5;
+      --dark-gray: #333;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --header-height: 4em;
+      --card-radius: 16px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --nav-width: 250px;
+    }
+    
+    /* Dark theme variables */
+    .dark-theme {
+      --white: #8D8989;
+      --light-gray: #C0C0C1;
+      --dark-gray: #f5f5f5;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    /* Header Styles */
+    .appHeader {
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .menuBtn {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .menuBtn:hover {
+      transform: scale(1.1);
+    }
+    
+    .menuBtn img {
+      height: 1.5rem;
+      width: 1.8rem;
+    }
+    
+    .appName {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    
+    .appName:first-letter {
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+    
+    .appLogo img {
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--white);
+    }
+    
+    /* Main Layout */
+    .appContainer {
+      display: flex;
+      flex: 1;
+    }
+    
+    /* Side Navigation Styles */
+    .sideNav {
+      width: var(--nav-width);
+      background: linear-gradient(to bottom, var(--primary-dark), var(--primary));
+      color: var(--white);
+      height: calc(100vh - var(--header-height));
+      position: sticky;
+      top: var(--header-height);
+      transition: all 0.3s ease;
+      overflow-y: auto;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 90;
+    }
+    
+    .navHeader {
+      padding: 1.5rem 1rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+    
+    .walletBalance {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+      color: #ffcc00;
+    }
+    
+    .walletLabel {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .navMenu {
+      list-style: none;
+      padding: 1rem 0;
+    }
+    
+    .navItem {
+      margin-bottom: 0.5rem;
+    }
+    
+    .navLink {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s;
+      border-left: 4px solid transparent;
+    }
+    
+    .navLink:hover,
+    .navLink.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left-color: #ffcc00;
+      padding-left: 1.8rem;
+    }
+    
+    .navIcon {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+    
+    .navText {
+      font-weight: 500;
+    }
+    
+    /* Theme Toggle Styles */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-left: 4px solid transparent;
+    }
+    
+    .theme-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding-left: 1.8rem;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      margin-left: auto;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked+.toggle-slider {
+      background-color: #ffcc00;
+    }
+    
+    input:checked+.toggle-slider:before {
+      transform: translateX(26px);
+    }
+    
+    .toggle-img {
+      height: 8px;
+    }
+    
+    /* Main Content Styles */
+    .appBody {
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+      width: calc(100% - var(--nav-width));
+      transition: all 0.3s ease;
+    }
+    
+    .section-title {
+      margin: 1.5rem 0 1rem;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    
+    /* Network Cards */
+    .networkContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .networkCard {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    
+    .networkCard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .networkHeader {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .networkIcon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .mtn {
+      background-color: #ffcc00;
+      color: black;
+    }
+    
+    .airtel {
+      background-color: #e61601;
+    }
+    
+    .glo {
+      background-color: #00a859;
+    }
+    
+    .etisalat {
+      background-color: #663399;
+    }
+    
+    .networkName {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+    .buyActionBtn {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .actionBtn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem;
+      border-radius: 10px;
+      background: var(--light-gray);
+      color: var(--primary);
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      text-decoration: none;
+    }
+    
+    .actionBtn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .actionBtn i {
+      font-size: 1.5rem;
+    }
+    
+    .actionBtn span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    /* Transaction Container Styles */
+    .transactionContainer {
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .transactionHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .transactionTitle {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    
+    .transactionFilters {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .filterBtn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    
+    .filterBtn:hover,
+    .filterBtn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .transactionList {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .transactionItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 10px;
+      background: var(--light-gray);
+      transition: all 0.3s;
+    }
+    
+    .transactionItem:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .transactionInfo {
+      flex: 1;
+    }
+    
+    .transactionAction {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--dark-gray);
+    }
+    
+    .transactionMeta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--dark-gray);
+      opacity: 0.8;
+    }
+    
+    .transactionId {
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+    
+    .transactionDetails {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+    
+    .transactionCost {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    
+    .transactionBalance {
+      font-size: 0.85rem;
+      color: var(--dark-gray);
+      opacity: 0.8;
+    }
+    
+    .transactionStatus {
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .status-pending {
+      background-color: var(--warning);
+      color: #000;
+    }
+    
+    .status-success {
+      background-color: var(--success);
+      color: white;
+    }
+    
+    .status-failed {
+      background-color: var(--danger);
+      color: white;
+    }
+    
+    .no-transactions {
+      text-align: center;
+      padding: 2rem;
+      color: var(--dark-gray);
+      opacity: 0.7;
+    }
+    
+    /* Overlay Styles */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(66, 68, 90, 0.84);
+      z-index: 200;
+      backdrop-filter: blur(2px);
+    }
+    
+    .overlay-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 500px;
+      background-color: var(--white);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .overlay-title {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark-gray);
+      transition: color 0.3s;
+    }
+    
+    .close-btn:hover {
+      color: var(--primary);
+    }
+    
+    .plan-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .plan-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: var(--light-gray);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .plan-item:hover {
+      background-color: var(--primary-light);
+      color: white;
+    }
+    
+    .plan-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .plan-size {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .plan-duration {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .plan-price {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .plan-item:hover .plan-price {
+      color: white;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(139, 65, 0, 0.2);
+    }
+    
+    .phone-input {
+      display: flex;
+      align-items: center;
+    }
+    
+    .phone-prefix {
+      padding: 0.8rem 0.5rem;
+      background-color: var(--light-gray);
+      border: 1px solid #ddd;
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      font-weight: 500;
+    }
+    
+    .phone-input .form-input {
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-cancel {
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+    }
+    
+    .btn-cancel:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .btn-buy {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-buy:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .selected-plan {
+      background-color: var(--primary-light);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* Fund Wallet Overlay */
+    .payment-methods {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .payment-method {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      border: 2px solid var(--light-gray);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .payment-method:hover,
+    .payment-method.active {
+      border-color: var(--primary);
+      background-color: rgba(139, 65, 0, 0.05);
+    }
+    
+    .payment-icon {
+      font-size: 2rem;
+      width: 4rem;
+      border-radius: 0.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    /* Mobile Navigation */
+    .mobileNav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--primary-dark);
+      z-index: 100;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobileNavMenu {
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+    
+    .mobileNavItem {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .mobileNavLink {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+    
+    .mobileNavLink:hover,
+    .mobileNavLink.active {
+      color: #ffcc00;
+    }
+    
+    .mobileNavIcon {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    
+    /* Custom Alert Styles */
+    .alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(2px);
+    }
+    
+    .alert-box {
+      background-color: var(--white);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow);
+      width: 90%;
+      max-width: 400px;
+      overflow: hidden;
+      animation: alertSlideIn 0.3s ease-out;
+    }
+    
+    @keyframes alertSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .alert-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .alert-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+    }
+    
+    .alert-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .alert-body {
+      padding: 1.5rem;
+    }
+    
+    .alert-message {
+      line-height: 1.5;
+      color: var(--dark-gray);
+    }
+    
+    .alert-footer {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      border-top: 1px solid var(--light-gray);
+    }
+    
+    .alert-btn {
+      padding: 0.5rem 1.25rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .alert-btn-cancel {
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+    }
+    
+    .alert-btn-cancel:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .alert-btn-ok {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .alert-btn-ok:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    /* Alert type styles */
+    .alert-info .alert-icon {
+      background-color: var(--info);
+    }
+    
+    .alert-success .alert-icon {
+      background-color: var(--success);
+    }
+    
+    .alert-warning .alert-icon {
+      background-color: var(--warning);
+    }
+    
+    .alert-confirm .alert-icon {
+      background-color: var(--warning);
+    }
+    
+    .alert-follow .alert-icon {
+      background-color: var(--primary);
+    }
+    
+    /* Stacking alerts */
+    .alert-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    .alert-container>* {
+      pointer-events: auto;
+    }
+    
+    
+    
+    
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .sideNav {
+        width: 220px;
+      }
+      
+      .appBody {
+        width: calc(100% - 220px);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .sideNav {
+        transform: translateX(-100%);
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        z-index: 150;
+      }
+      
+      .sideNav.active {
+        transform: translateX(0);
+      }
+      
+      .appBody {
+        width: 100%;
+        padding: 1rem;
+      }
+      
+      .networkContainer {
+        grid-template-columns: 1fr;
+        margin-bottom: 4rem;
+      }
+      
+      .mobileNav {
+        display: block;
+      }
+      
+      .overlay-content {
+        width: 95%;
+        padding: 1.5rem;
+      }
+      
+      .payment-methods {
+        flex-direction: column;
+      }
+      
+      .transactionItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      
+      .transactionDetails {
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .transactionFilters {
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .appHeader {
+        padding: 0 1rem;
+      }
+      
+      .appName {
+        font-size: 1.3rem;
+      }
+      
+      /* 
    .alert-box {
     width: 95%;
    }
@@ -1069,272 +1069,272 @@
     width: 100%;
    }
 */
-   .buyActionBtn {
-    flex-direction: column;
-   }
-   
-   .action-buttons {
-    flex-direction: column;
-   }
-   
-   .walletBalance {
-    font-size: 1.5rem;
-   }
-  }
-  
-  
-  
-  /* Backdrop for mobile nav */
-  .navBackdrop {
-   display: none;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.5);
-   z-index: 140;
-  }
-  
-  .navBackdrop.active {
-   display: block;
-  }
-  
-  
-  /* Loading*/
-  
-  /* Loading Component Styles */
-  .loading-overlay {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.7);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   z-index: 1000;
-   backdrop-filter: blur(3px);
-  }
-  
-  .loading-container {
-   background-color: var(--white);
-   border-radius: var(--card-radius);
-   padding: 2rem;
-   box-shadow: var(--shadow);
-   max-width: 400px;
-   width: 90%;
-   text-align: center;
-   animation: loadingSlideIn 0.3s ease-out;
-  }
-  
-  @keyframes loadingSlideIn {
-   from {
-    opacity: 0;
-    transform: translateY(-20px);
-   }
-   
-   to {
-    opacity: 1;
-    transform: translateY(0);
-   }
-  }
-  
-  .loading-spinner {
-   width: 60px;
-   height: 60px;
-   margin: 0 auto 1.5rem;
-   position: relative;
-  }
-  
-  .spinner-ring {
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   border: 4px solid transparent;
-   border-top: 4px solid var(--primary);
-   border-radius: 50%;
-   animation: spin 1s linear infinite;
-  }
-  
-  .spinner-ring:nth-child(2) {
-   border: 4px solid transparent;
-   border-bottom: 4px solid var(--primary-light);
-   animation: spinReverse 1.5s linear infinite;
-  }
-  
-  @keyframes spin {
-   0% {
-    transform: rotate(0deg);
-   }
-   
-   100% {
-    transform: rotate(360deg);
-   }
-  }
-  
-  @keyframes spinReverse {
-   0% {
-    transform: rotate(0deg);
-   }
-   
-   100% {
-    transform: rotate(-360deg);
-   }
-  }
-  
-  .loading-content {
-   margin-bottom: 1.5rem;
-  }
-  
-  .loading-title {
-   font-size: 1.2rem;
-   font-weight: 600;
-   margin-bottom: 0.5rem;
-   color: var(--primary-dark);
-  }
-  
-  .loading-message {
-   color: var(--dark-gray);
-   line-height: 1.5;
-  }
-  
-  .loading-progress {
-   width: 100%;
-   height: 6px;
-   background-color: var(--light-gray);
-   border-radius: 3px;
-   overflow: hidden;
-   margin: 1rem 0;
-  }
-  
-  .loading-progress-bar {
-   height: 100%;
-   background: linear-gradient(90deg, var(--primary), var(--primary-light));
-   border-radius: 3px;
-   width: 0%;
-   animation: progressAnimation 2s ease-in-out infinite;
-  }
-  
-  @keyframes progressAnimation {
-   0% {
-    width: 0%;
-   }
-   
-   50% {
-    width: 70%;
-   }
-   
-   100% {
-    width: 100%;
-   }
-  }
-  
-  .loading-dots {
-   display: inline-block;
-   margin-left: 0.25rem;
-  }
-  
-  .loading-dots span {
-   animation: dots 1.5s infinite;
-   opacity: 0;
-  }
-  
-  .loading-dots span:nth-child(2) {
-   animation-delay: 0.2s;
-  }
-  
-  .loading-dots span:nth-child(3) {
-   animation-delay: 0.4s;
-  }
-  
-  @keyframes dots {
-   
-   0%,
-   100% {
-    opacity: 0;
-   }
-   
-   50% {
-    opacity: 1;
-   }
-  }
-  
-  
-  
-  
-  /* Success State */
-  .loading-success .spinner-ring {
-   animation: none;
-   border: 4px solid var(--success);
-   border-top: 4px solid var(--success);
-  }
-  
-  .loading-success .spinner-ring::after {
-   content: "✓";
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   color: var(--success);
-   font-size: 1.5rem;
-   font-weight: bold;
-  }
-  
-  /* Error State */
-  .loading-error .spinner-ring {
-   animation: none;
-   border: 4px solid var(--danger);
-   border-top: 4px solid var(--danger);
-  }
-  
-  .loading-error .spinner-ring::after {
-   content: "✕";
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   color: var(--danger);
-   font-size: 1.5rem;
-   font-weight: bold;
-  }
- </style>
+      .buyActionBtn {
+        flex-direction: column;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .walletBalance {
+        font-size: 1.5rem;
+      }
+    }
+    
+    
+    
+    /* Backdrop for mobile nav */
+    .navBackdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 140;
+    }
+    
+    .navBackdrop.active {
+      display: block;
+    }
+    
+    
+    /* Loading*/
+    
+    /* Loading Component Styles */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(3px);
+    }
+    
+    .loading-container {
+      background-color: var(--white);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      animation: loadingSlideIn 0.3s ease-out;
+    }
+    
+    @keyframes loadingSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    
+    .spinner-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 4px solid transparent;
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    .spinner-ring:nth-child(2) {
+      border: 4px solid transparent;
+      border-bottom: 4px solid var(--primary-light);
+      animation: spinReverse 1.5s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes spinReverse {
+      0% {
+        transform: rotate(0deg);
+      }
+      
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+    
+    .loading-content {
+      margin-bottom: 1.5rem;
+    }
+    
+    .loading-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+    
+    .loading-message {
+      color: var(--dark-gray);
+      line-height: 1.5;
+    }
+    
+    .loading-progress {
+      width: 100%;
+      height: 6px;
+      background-color: var(--light-gray);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    
+    .loading-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 3px;
+      width: 0%;
+      animation: progressAnimation 2s ease-in-out infinite;
+    }
+    
+    @keyframes progressAnimation {
+      0% {
+        width: 0%;
+      }
+      
+      50% {
+        width: 70%;
+      }
+      
+      100% {
+        width: 100%;
+      }
+    }
+    
+    .loading-dots {
+      display: inline-block;
+      margin-left: 0.25rem;
+    }
+    
+    .loading-dots span {
+      animation: dots 1.5s infinite;
+      opacity: 0;
+    }
+    
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes dots {
+      
+      0%,
+      100% {
+        opacity: 0;
+      }
+      
+      50% {
+        opacity: 1;
+      }
+    }
+    
+    
+    
+    
+    /* Success State */
+    .loading-success .spinner-ring {
+      animation: none;
+      border: 4px solid var(--success);
+      border-top: 4px solid var(--success);
+    }
+    
+    .loading-success .spinner-ring::after {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--success);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    /* Error State */
+    .loading-error .spinner-ring {
+      animation: none;
+      border: 4px solid var(--danger);
+      border-top: 4px solid var(--danger);
+    }
+    
+    .loading-error .spinner-ring::after {
+      content: "✕";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--danger);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
- 
- <header class="appHeader">
-  <div class="menuBtn" id="menuToggle">
-   <img src="/IMG/myMenuBar.png" alt="" />
-  </div>
   
-  <span class="appName">Onlinewithbeta</span>
+  <header class="appHeader">
+    <div class="menuBtn" id="menuToggle">
+      <img src="/IMG/myMenuBar.png" alt="" />
+    </div>
+    
+    <span class="appName">Onlinewithbeta</span>
+    
+    <div class="appLogo">
+      <img src="/IMG/icon.png" alt="Onlinewithbeta Logo">
+    </div>
+  </header>
   
-  <div class="appLogo">
-   <img src="/IMG/icon.png" alt="Onlinewithbeta Logo">
-  </div>
- </header>
- 
- <div class="appContainer">
-  <!-- Side Navigation -->
-  <nav class="sideNav" id="sideNav">
-   <div class="navHeader">
-    <div class="walletLabel">Wallet Balance</div>
-    <div id="walletBalance" class="walletBalance">₦0.00</div>
-    <button class="btn btn-buy" id="fundWalletBtn" style="margin-top: 0.5rem;">
-     <i class="fas fa-plus"></i> Fund Wallet
-    </button>
-   </div>
-   
-   <ul class="navMenu">
-    <li class="navItem">
-     <a href="#" class="navLink active">
-      <i class="fas fa-home navIcon"></i>
-      <span class="navText">Dashboard</span>
-     </a>
-    </li>
-    <!-- 
+  <div class="appContainer">
+    <!-- Side Navigation -->
+    <nav class="sideNav" id="sideNav">
+      <div class="navHeader">
+        <div class="walletLabel">Wallet Balance</div>
+        <div id="walletBalance" class="walletBalance">₦0.00</div>
+        <button class="btn btn-buy" id="fundWalletBtn" style="margin-top: 0.5rem;">
+          <i class="fas fa-plus"></i> Fund Wallet
+        </button>
+      </div>
+      
+      <ul class="navMenu">
+        <li class="navItem">
+          <a href="#" class="navLink active">
+            <i class="fas fa-home navIcon"></i>
+            <span class="navText">Dashboard</span>
+          </a>
+        </li>
+        <!-- 
 
     <li class="navItem">
      <a href="#" class="navLink">
@@ -1345,26 +1345,26 @@
     
      
      -->
-    
-    
-    <li class="navItem">
-     <a href="#" class="navLink" id="showTransactions">
-      <i class="fas fa-exchange-alt navIcon"></i>
-      <span class="navText">Transactions</span>
-     </a>
-    </li>
-    <!-- Theme Toggle -->
-    <li class="navItem">
-     <div class="theme-toggle" id="themeToggle">
-      <i class="fas fa-palette navIcon"></i>
-      <span class="navText">Dark Mode</span>
-      <label class="toggle-switch">
-       <input type="checkbox" id="themeSwitch">
-       <span class="toggle-slider"> </span>
-      </label>
-     </div>
-    </li>
-    <!--  
+        
+        
+        <li class="navItem">
+          <a href="#" class="navLink" id="showTransactions">
+            <i class="fas fa-exchange-alt navIcon"></i>
+            <span class="navText">Transactions</span>
+          </a>
+        </li>
+        <!-- Theme Toggle -->
+        <li class="navItem">
+          <div class="theme-toggle" id="themeToggle">
+            <i class="fas fa-palette navIcon"></i>
+            <span class="navText">Dark Mode</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="themeSwitch">
+              <span class="toggle-slider"> </span>
+            </label>
+          </div>
+        </li>
+        <!--  
      <li class="navItem">
      <a href="#" class="navLink">
       <i class="fas fa-cog navIcon"></i>
@@ -1373,136 +1373,136 @@
     </li>
 
  -->
+        
+        <li class="navItem" id="showContact">
+          <a href="#" class="navLink">
+            <i class="fas fa-question-circle navIcon"></i>
+            <span class="navText">Help & Support</span>
+          </a>
+        </li>
+        <li class="navItem">
+          <a href="#" class="navLink">
+            <i class="fas fa-sign-out-alt navIcon"></i>
+            <span class="navText">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
     
-    <li class="navItem" id="showContact">
-     <a href="#" class="navLink">
-      <i class="fas fa-question-circle navIcon"></i>
-      <span class="navText">Help & Support</span>
-     </a>
-    </li>
-    <li class="navItem">
-     <a href="#" class="navLink">
-      <i class="fas fa-sign-out-alt navIcon"></i>
-      <span class="navText">Sign Out</span>
-     </a>
-    </li>
-   </ul>
-  </nav>
+    <!-- Backdrop for mobile navigation -->
+    <div class="navBackdrop" id="navBackdrop"></div>
+    
+    <!-- Main Content -->
+    <main class="appBody">
+      <h2 class="section-title">Select Network</h2>
+      
+      <section class="networkContainer">
+        <!-- MTN Card -->
+        <div class="networkCard">
+          <div class="networkHeader">
+            <div class="networkIcon mtn">M</div>
+            <div class="networkName">MTN</div>
+          </div>
+          
+          <div class="buyActionBtn">
+            <a href="#" class="actionBtn" data-network="mtn" data-type="data">
+              <i class="fas fa-wifi"></i>
+              <span>Buy Data</span>
+            </a>
+            <a href="#" class="actionBtn" data-network="mtn" data-type="airtime">
+              <i class="fas fa-phone-alt"></i>
+              <span>Buy Airtime</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Airtel Card -->
+        <div class="networkCard">
+          <div class="networkHeader">
+            <div class="networkIcon airtel">A</div>
+            <div class="networkName">Airtel</div>
+          </div>
+          
+          <div class="buyActionBtn">
+            <a href="#" class="actionBtn" data-network="airtel" data-type="data">
+              <i class="fas fa-wifi"></i>
+              <span>Buy Data</span>
+            </a>
+            <a href="#" class="actionBtn" data-network="airtel" data-type="airtime">
+              <i class="fas fa-phone-alt"></i>
+              <span>Buy Airtime</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- GLO Card -->
+        <div class="networkCard">
+          <div class="networkHeader">
+            <div class="networkIcon glo">G</div>
+            <div class="networkName">GLO</div>
+          </div>
+          
+          <div class="buyActionBtn">
+            <a href="#" class="actionBtn" data-network="glo" data-type="data">
+              <i class="fas fa-wifi"></i>
+              <span>Buy Data</span>
+            </a>
+            <a href="#" class="actionBtn" data-network="glo" data-type="airtime">
+              <i class="fas fa-phone-alt"></i>
+              <span>Buy Airtime</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 9mobile Card -->
+        <div class="networkCard">
+          <div class="networkHeader">
+            <div class="networkIcon etisalat">9</div>
+            <div class="networkName">9mobile</div>
+          </div>
+          
+          <div class="buyActionBtn">
+            <a href="#" class="actionBtn" data-network="9mobile" data-type="data">
+              <i class="fas fa-wifi"></i>
+              <span>Buy Data</span>
+            </a>
+            <a href="#" class="actionBtn" data-network="9mobile" data-type="airtime">
+              <i class="fas fa-phone-alt"></i>
+              <span>Buy Airtime</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Transactions Section -->
+      <section class="transactionContainer" id="transactionContainer">
+        <div class="transactionHeader">
+          <h2 class="transactionTitle">Recent Transactions</h2>
+          <div class="transactionFilters">
+            <button class="filterBtn active" data-filter="all">All</button>
+            <button class="filterBtn" data-filter="success">Successful</button>
+            <button class="filterBtn" data-filter="pending">Pending</button>
+            <button class="filterBtn" data-filter="failed">Failed</button>
+          </div>
+        </div>
+        <div class="transactionList" id="transactionList">
+          <!-- Transactions will be dynamically inserted here -->
+        </div>
+      </section>
+      
+    </main>
+  </div>
   
-  <!-- Backdrop for mobile navigation -->
-  <div class="navBackdrop" id="navBackdrop"></div>
-  
-  <!-- Main Content -->
-  <main class="appBody">
-   <h2 class="section-title">Select Network</h2>
-   
-   <section class="networkContainer">
-    <!-- MTN Card -->
-    <div class="networkCard">
-     <div class="networkHeader">
-      <div class="networkIcon mtn">M</div>
-      <div class="networkName">MTN</div>
-     </div>
-     
-     <div class="buyActionBtn">
-      <a href="#" class="actionBtn" data-network="mtn" data-type="data">
-       <i class="fas fa-wifi"></i>
-       <span>Buy Data</span>
-      </a>
-      <a href="#" class="actionBtn" data-network="mtn" data-type="airtime">
-       <i class="fas fa-phone-alt"></i>
-       <span>Buy Airtime</span>
-      </a>
-     </div>
-    </div>
-    
-    <!-- Airtel Card -->
-    <div class="networkCard">
-     <div class="networkHeader">
-      <div class="networkIcon airtel">A</div>
-      <div class="networkName">Airtel</div>
-     </div>
-     
-     <div class="buyActionBtn">
-      <a href="#" class="actionBtn" data-network="airtel" data-type="data">
-       <i class="fas fa-wifi"></i>
-       <span>Buy Data</span>
-      </a>
-      <a href="#" class="actionBtn" data-network="airtel" data-type="airtime">
-       <i class="fas fa-phone-alt"></i>
-       <span>Buy Airtime</span>
-      </a>
-     </div>
-    </div>
-    
-    <!-- GLO Card -->
-    <div class="networkCard">
-     <div class="networkHeader">
-      <div class="networkIcon glo">G</div>
-      <div class="networkName">GLO</div>
-     </div>
-     
-     <div class="buyActionBtn">
-      <a href="#" class="actionBtn" data-network="glo" data-type="data">
-       <i class="fas fa-wifi"></i>
-       <span>Buy Data</span>
-      </a>
-      <a href="#" class="actionBtn" data-network="glo" data-type="airtime">
-       <i class="fas fa-phone-alt"></i>
-       <span>Buy Airtime</span>
-      </a>
-     </div>
-    </div>
-    
-    <!-- 9mobile Card -->
-    <div class="networkCard">
-     <div class="networkHeader">
-      <div class="networkIcon etisalat">9</div>
-      <div class="networkName">9mobile</div>
-     </div>
-     
-     <div class="buyActionBtn">
-      <a href="#" class="actionBtn" data-network="9mobile" data-type="data">
-       <i class="fas fa-wifi"></i>
-       <span>Buy Data</span>
-      </a>
-      <a href="#" class="actionBtn" data-network="9mobile" data-type="airtime">
-       <i class="fas fa-phone-alt"></i>
-       <span>Buy Airtime</span>
-      </a>
-     </div>
-    </div>
-   </section>
-   
-   <!-- Transactions Section -->
-   <section class="transactionContainer" id="transactionContainer">
-    <div class="transactionHeader">
-     <h2 class="transactionTitle">Recent Transactions</h2>
-     <div class="transactionFilters">
-      <button class="filterBtn active" data-filter="all">All</button>
-      <button class="filterBtn" data-filter="success">Successful</button>
-      <button class="filterBtn" data-filter="pending">Pending</button>
-      <button class="filterBtn" data-filter="failed">Failed</button>
-     </div>
-    </div>
-    <div class="transactionList" id="transactionList">
-     <!-- Transactions will be dynamically inserted here -->
-    </div>
-   </section>
-   
-  </main>
- </div>
- 
- <!-- Mobile Navigation -->
- <nav class="mobileNav">
-  <ul class="mobileNavMenu">
-   <li class="mobileNavItem">
-    <a href="#" class="mobileNavLink active">
-     <i class="fas fa-home mobileNavIcon"></i>
-     <span>Home</span>
-    </a>
-   </li>
-   <!-- 
+  <!-- Mobile Navigation -->
+  <nav class="mobileNav">
+    <ul class="mobileNavMenu">
+      <li class="mobileNavItem">
+        <a href="#" class="mobileNavLink active">
+          <i class="fas fa-home mobileNavIcon"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <!-- 
    <li class="mobileNavItem">
     <a href="#" class="mobileNavLink">
      <i class="fas fa-wallet mobileNavIcon"></i>
@@ -1510,19 +1510,19 @@
     </a>
    </li>
  -->
-   <li class="mobileNavItem">
-    <a href="#" class="mobileNavLink" id="mobileMenuBtn">
-     <i class="fas fa-bars mobileNavIcon"></i>
-     <span>Menu</span>
-    </a>
-   </li>
-   <li class="mobileNavItem">
-    <a href="#" class="mobileNavLink" id="mobileTransactionsBtn">
-     <i class="fas fa-exchange-alt mobileNavIcon"></i>
-     <span>Transactions</span>
-    </a>
-   </li>
-   <!-- 
+      <li class="mobileNavItem">
+        <a href="#" class="mobileNavLink" id="mobileMenuBtn">
+          <i class="fas fa-bars mobileNavIcon"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li class="mobileNavItem">
+        <a href="#" class="mobileNavLink" id="mobileTransactionsBtn">
+          <i class="fas fa-exchange-alt mobileNavIcon"></i>
+          <span>Transactions</span>
+        </a>
+      </li>
+      <!-- 
    <li class="mobileNavItem">
     <a href="#" class="mobileNavLink">
      <i class="fas fa-cog mobileNavIcon"></i>
@@ -1530,103 +1530,103 @@
     </a>
    </li>
  -->
-  </ul>
- </nav>
- 
- <!-- Data Plans Overlay -->
- <div id="dataPlansOverlay" class="overlay">
-  <div class="overlay-content">
-   <div class="overlay-header">
-    <h2 class="overlay-title" id="dataPlansTitle">MTN Data Plans</h2>
-    <button class="close-btn" id="closeDataPlans">&times;</button>
-   </div>
-   <div class="plan-list" id="dataPlansList">
-    <!-- Plans will be dynamically inserted here -->
-   </div>
-  </div>
- </div>
- 
- <!-- Airtime Overlay -->
- <div id="airtimeOverlay" class="overlay">
-  <div class="overlay-content">
-   <div class="overlay-header">
-    <h2 class="overlay-title" id="airtimeTitle">MTN Airtime</h2>
-    <button class="close-btn" id="closeAirtime">&times;</button>
-   </div>
-   <div class="form-group">
-    <label for="airtimeAmount" class="form-label">Amount (₦)</label>
-    <input type="number" name="airtimeAmount" id="airtimeAmount" class="form-input" placeholder="100" min="50" step="50">
-   </div>
-   <div class="form-group">
-    <label for="airtimePhone" class="form-label">Phone Number</label>
-    <div class="phone-input">
-     <span class="phone-prefix">+234</span>
-     <input type="tel" name="airtimePhone" id="airtimePhone" class="form-input" placeholder="9117624342" maxlength="10">
+    </ul>
+  </nav>
+  
+  <!-- Data Plans Overlay -->
+  <div id="dataPlansOverlay" class="overlay">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <h2 class="overlay-title" id="dataPlansTitle">MTN Data Plans</h2>
+        <button class="close-btn" id="closeDataPlans">&times;</button>
+      </div>
+      <div class="plan-list" id="dataPlansList">
+        <!-- Plans will be dynamically inserted here -->
+      </div>
     </div>
-   </div>
-   <div class="action-buttons">
-    <button class="btn btn-cancel" id="cancelAirtimeBtn">
-     <i class="fas fa-times"></i> Cancel
-    </button>
-    <button class="btn btn-buy" id="buyAirtimeBtn">
-     <i class="fas fa-check"></i> Buy Airtime
-    </button>
-   </div>
   </div>
- </div>
- 
- <!-- Data Order Overlay -->
- <div id="dataOrderOverlay" class="overlay">
-  <div class="overlay-content">
-   <div class="overlay-header">
-    <h2 class="overlay-title" id="dataOrderTitle">MTN Data Order</h2>
-    <button class="close-btn" id="closeDataOrder">&times;</button>
-   </div>
-   <div class="selected-plan" id="selectedPlan">
-    <!-- Selected plan will be displayed here -->
-   </div>
-   <div class="form-group">
-    <label for="dataPhone" class="form-label">Phone Number</label>
-    <div class="phone-input">
-     <span class="phone-prefix">+234</span>
-     <input type="tel" name="dataPhone" id="dataPhone" class="form-input" placeholder="9117624342" maxlength="10">
+  
+  <!-- Airtime Overlay -->
+  <div id="airtimeOverlay" class="overlay">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <h2 class="overlay-title" id="airtimeTitle">MTN Airtime</h2>
+        <button class="close-btn" id="closeAirtime">&times;</button>
+      </div>
+      <div class="form-group">
+        <label for="airtimeAmount" class="form-label">Amount (₦)</label>
+        <input type="number" name="airtimeAmount" id="airtimeAmount" class="form-input" placeholder="100" min="50" step="50">
+      </div>
+      <div class="form-group">
+        <label for="airtimePhone" class="form-label">Phone Number</label>
+        <div class="phone-input">
+          <span class="phone-prefix">+234</span>
+          <input type="tel" name="airtimePhone" id="airtimePhone" class="form-input" placeholder="9117624342" maxlength="10">
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-cancel" id="cancelAirtimeBtn">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <button class="btn btn-buy" id="buyAirtimeBtn">
+          <i class="fas fa-check"></i> Buy Airtime
+        </button>
+      </div>
     </div>
-   </div>
-   <div class="action-buttons">
-    <button class="btn btn-cancel" id="cancelDataBtn">
-     <i class="fas fa-times"></i> Cancel
-    </button>
-    <button class="btn btn-buy" id="buyDataBtn">
-     <i class="fas fa-check"></i> Buy Data
-    </button>
-   </div>
   </div>
- </div>
- 
- <!-- Fund Wallet Overlay -->
- <div id="fundWalletOverlay" class="overlay">
-  <div class="overlay-content">
-   
-   <div class="overlay-header">
-    <h2 class="overlay-title">Fund Wallet</h2>
-    <button class="close-btn" id="closeFundWallet">&times;</button>
-   </div>
-   
-   <div class="form-group">
-    <label for="fundAmount" class="form-label">Amount (₦)</label>
-    <input type="number" name="fundAmount" id="fundAmount" class="form-input" placeholder="1000" min="100" step="100">
-   </div>
-   <div class="form-group">
-    <label class="form-label">Payment Method</label>
-    <div class="payment-methods">
-     <div class="payment-method active">
-      <!--
+  
+  <!-- Data Order Overlay -->
+  <div id="dataOrderOverlay" class="overlay">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <h2 class="overlay-title" id="dataOrderTitle">MTN Data Order</h2>
+        <button class="close-btn" id="closeDataOrder">&times;</button>
+      </div>
+      <div class="selected-plan" id="selectedPlan">
+        <!-- Selected plan will be displayed here -->
+      </div>
+      <div class="form-group">
+        <label for="dataPhone" class="form-label">Phone Number</label>
+        <div class="phone-input">
+          <span class="phone-prefix">+234</span>
+          <input type="tel" name="dataPhone" id="dataPhone" class="form-input" placeholder="9117624342" maxlength="10">
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-cancel" id="cancelDataBtn">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <button class="btn btn-buy" id="buyDataBtn">
+          <i class="fas fa-check"></i> Buy Data
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Fund Wallet Overlay -->
+  <div id="fundWalletOverlay" class="overlay">
+    <div class="overlay-content">
+      
+      <div class="overlay-header">
+        <h2 class="overlay-title">Fund Wallet</h2>
+        <button class="close-btn" id="closeFundWallet">&times;</button>
+      </div>
+      
+      <div class="form-group">
+        <label for="fundAmount" class="form-label">Amount (₦)</label>
+        <input type="number" name="fundAmount" id="fundAmount" class="form-input" placeholder="1000" min="100" step="100">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Payment Method</label>
+        <div class="payment-methods">
+          <div class="payment-method active">
+            <!--
   <i class="fab fa-cc-mastercard payment-icon"></i>
     -->
-      <img class="payment-icon" srcset="./IMG/paystack.png" src="./IMG/paystack.png" alt="paystack">
-      <div>Paystack</div>
-     </div>
-     <!--
+            <img class="payment-icon" srcset="./IMG/paystack.png" src="./IMG/paystack.png" alt="paystack">
+            <div>Paystack</div>
+          </div>
+          <!--
     Add other payment methods 
      <div class="payment-method">
       <i class="fas fa-university payment-icon"></i>
@@ -1637,255 +1637,255 @@
       <div>USSD</div>
      </div>
   -->
-     
+          
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-cancel" id="cancelFundWallet">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <button class="btn btn-buy" id="proceedFundWallet">
+          <i class="fas fa-credit-card"></i> Proceed
+        </button>
+      </div>
+      
     </div>
-   </div>
-   <div class="action-buttons">
-    <button class="btn btn-cancel" id="cancelFundWallet">
-     <i class="fas fa-times"></i> Cancel
-    </button>
-    <button class="btn btn-buy" id="proceedFundWallet">
-     <i class="fas fa-credit-card"></i> Proceed
-    </button>
-   </div>
-   
   </div>
- </div>
- 
- <!-- Contact Overlay -->
- <div id="contactOverlay" class="overlay">
-  <div class="overlay-content">
-   <div class="overlay-header">
-    <h2 class="overlay-title">Contact Us</h2>
-    <button class="close-btn" id="closeContact">&times;</button>
-   </div>
-   
-   <div class="form-group">
-    <label class="form-label">WhatsApp Us</label>
-    <span id="WhatsApp" class="form-input">09117624342</span>
-   </div>
+  
+  <!-- Contact Overlay -->
+  <div id="contactOverlay" class="overlay">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <h2 class="overlay-title">Contact Us</h2>
+        <button class="close-btn" id="closeContact">&times;</button>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">WhatsApp Us</label>
+        <span id="WhatsApp" class="form-input">09117624342</span>
+      </div>
+    </div>
   </div>
- </div>
- 
- 
- <!-- Alert container - where alerts will be appended -->
- <div class="alert-container" id="alertContainer"></div>
- 
- <!-- Loading container - where loading components will be appended -->
- <div id="loadingContainer"></div>
- 
- <script type="text/javascript" charset="utf-8">
+  
+  
+  <!-- Alert container - where alerts will be appended -->
+  <div class="alert-container" id="alertContainer"></div>
+  
+  <!-- Loading container - where loading components will be appended -->
+  <div id="loadingContainer"></div>
+  
+  <script type="text/javascript" charset="utf-8">
     const apiUrl = 'https://owbbk.onrender.com';
- // const apiUrl = 'https://api.onlinewithbeta.name.ng';
-  // const apiUrl = 'http://localhost:2025';
-  
-  function setCookie(cname, cvalue, exdays = 1) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  
-  
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+    // const apiUrl = 'https://api.onlinewithbeta.name.ng';
+    // const apiUrl = 'http://localhost:2025';
+    
+    function setCookie(cname, cvalue, exdays = 1) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-    return "";
-  }
-  
-  /*
-  async functions
-
-  buy data//airtime 
-
-  history
-
-  plans
-
-
-  fund
-
-
-
-
-  */
-  
-  async function request(method, body, path) {
-    try {
-      const apikey = getCookie('apikey') || 23;
-      const baseUrl = apiUrl;
-      const url = baseUrl + path;
-      
-      const options = {
-        method: method,
-        headers: {
-          'apikey': `${apikey}`,
-          'Content-Type': 'application/json'
+    
+    
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
         }
-      };
-      
-      if (body && ['POST', 'PUT', 'PATCH'].includes(method.toUpperCase())) {
-        options.body = JSON.stringify(body);
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
       }
-      
-      const response = await fetch(url, options);
-      let data = await response.json();
-      
-      if (response.status !== 200 && response.status !== 201) throw new Error(data.message)
-      
-      return data
-    } catch (error) {
-      let msg = error.message;
-      if (msg === 'failed to fetch') msg = 'Bad internet connection.'
-      throw new Error(msg)
+      return "";
     }
-  }
-  
-  
-  let apikey = getCookie('apikey')
-  
-  if (!apikey.includes('OWB')) {
-    showAlert('warning', 'Please signin');
     
-   window.location.href = 'https://onlinewithbeta.name.ng';
-  }
-  // Sample transaction data
-  /*
-  const transactions = [
-  {
-   'Date': 'April 3, 2025',
-   'time': '04:36:24 PM',
-   id: 'Data_12345678900',
-   status: 'pending',
-   action: 'Purchased 5GB MTN Data for +2349117624342',
-   cost: '#0',
-   old_balance: '#7000',
-   new_balance: '#6500'
-  },
+    /*
+    async functions
 
-  {
-   'Date': 'April 2, 2025',
-   'time': '10:15:30 AM',
-   id: 'Airtime_12345678901',
-   status: 'success',
-   action: 'Purchased Airtime for +2348023456789',
-   cost: '#1000',
-   old_balance: '#8000',
-   new_balance: '#7000'
-  },
-  {
-   'Date': 'April 1, 2025',
-   'time': '02:45:12 PM',
-   id: 'funding_12345678906',
-   status: 'success',
-   action: 'Wallet Funding via Bank Transfer',
-   cost: '#5000',
-   old_balance: '#3000',
-   new_balance: '#8000'
-  },
-  {
-   'Date': 'March 30, 2025',
-   'time': '09:20:45 AM',
-   id: 'Data_12345678902',
-   status: 'failed',
-   action: 'Purchased 2GB Airtel Data for +2347034567890',
-   cost: '#1200',
-   old_balance: '#4200',
-   new_balance: '#4200'
-  },
-  {
-   'Date': 'March 28, 2025',
-   'time': '05:10:33 PM',
-   id: 'Airtime_12345678903',
-   status: 'success',
-   action: 'Purchased Airtime for +2349056781234',
-   cost: '#500',
-   old_balance: '#4700',
-   new_balance: '#4200'
-  },
-  {
-   'Date': 'March 25, 2025',
-   'time': '11:05:22 AM',
-   id: 'Data_12345678904',
-   status: 'success',
-   action: 'Purchased 1GB Glo Data for +2348167890123',
-   cost: '#600',
-   old_balance: '#5300',
-   new_balance: '#4700'
-  },
-  {
-   'Date': 'March 22, 2025',
-   'time': '03:40:15 PM',
-   id: 'Airtime_12345678905',
-   status: 'pending',
-   action: 'Purchased Airtime for +2348078901234',
-   cost: '#1500',
-   old_balance: '#6800',
-   new_balance: '#5300'
-  }];
-  */
-  
-  
-  let transactions = [];
-  
-  //Function for balance 
-  async function getBalance() {
-    try {
-      let balRes = await request('GET', null, '/v1/fund/balance')
-      console.log(balRes)
-      
-      return displayFund(balRes)
-      
-      
-    } catch (e) {
-      console.log(e)
+    buy data//airtime 
+
+    history
+
+    plans
+
+
+    fund
+
+
+
+
+    */
+    
+    async function request(method, body, path) {
+      try {
+        const apikey = getCookie('apikey') || 23;
+        const baseUrl = apiUrl;
+        const url = baseUrl + path;
+        
+        const options = {
+          method: method,
+          headers: {
+            'apikey': `${apikey}`,
+            'Content-Type': 'application/json'
+          }
+        };
+        
+        if (body && ['POST', 'PUT', 'PATCH'].includes(method.toUpperCase())) {
+          options.body = JSON.stringify(body);
+        }
+        
+        const response = await fetch(url, options);
+        let data = await response.json();
+        
+        if (response.status !== 200 && response.status !== 201) throw new Error(data.message)
+        
+        return data
+      } catch (error) {
+        let msg = error.message;
+        if (msg === 'failed to fetch') msg = 'Bad internet connection.'
+        throw new Error(msg)
+      }
     }
     
-  }
-  
-  function displayFund(bal) {
-    document.getElementById('walletBalance').innerText = `₦${bal}`;
-  }
-  // Function to show transactions
-  async function showTransactions(filter = 'all') {
-    try {
-      if (filter === 'all') transactions = await request('GET', null, '/v1/buy/history');
+    
+    let apikey = getCookie('apikey')
+    
+    if (!apikey.includes('OWB')) {
+      showAlert('warning', 'Please signin');
       
-      const transactionList = document.getElementById('transactionList');
-      transactionList.innerHTML = '';
-      
-      // Filter transactions
-      const filteredTransactions = filter === 'all' ?
-        transactions :
-        transactions.filter(t => t.status === filter);
-      
-      if (filteredTransactions.length === 0) {
-        transactionList.innerHTML = '<div class="no-transactions">No transactions found</div>';
-        return;
+    //  window.location.href = 'https://onlinewithbeta.name.ng';
+    }
+    // Sample transaction data
+    /*
+    const transactions = [
+    {
+     'Date': 'April 3, 2025',
+     'time': '04:36:24 PM',
+     id: 'Data_12345678900',
+     status: 'pending',
+     action: 'Purchased 5GB MTN Data for +2349117624342',
+     cost: '#0',
+     old_balance: '#7000',
+     new_balance: '#6500'
+    },
+
+    {
+     'Date': 'April 2, 2025',
+     'time': '10:15:30 AM',
+     id: 'Airtime_12345678901',
+     status: 'success',
+     action: 'Purchased Airtime for +2348023456789',
+     cost: '#1000',
+     old_balance: '#8000',
+     new_balance: '#7000'
+    },
+    {
+     'Date': 'April 1, 2025',
+     'time': '02:45:12 PM',
+     id: 'funding_12345678906',
+     status: 'success',
+     action: 'Wallet Funding via Bank Transfer',
+     cost: '#5000',
+     old_balance: '#3000',
+     new_balance: '#8000'
+    },
+    {
+     'Date': 'March 30, 2025',
+     'time': '09:20:45 AM',
+     id: 'Data_12345678902',
+     status: 'failed',
+     action: 'Purchased 2GB Airtel Data for +2347034567890',
+     cost: '#1200',
+     old_balance: '#4200',
+     new_balance: '#4200'
+    },
+    {
+     'Date': 'March 28, 2025',
+     'time': '05:10:33 PM',
+     id: 'Airtime_12345678903',
+     status: 'success',
+     action: 'Purchased Airtime for +2349056781234',
+     cost: '#500',
+     old_balance: '#4700',
+     new_balance: '#4200'
+    },
+    {
+     'Date': 'March 25, 2025',
+     'time': '11:05:22 AM',
+     id: 'Data_12345678904',
+     status: 'success',
+     action: 'Purchased 1GB Glo Data for +2348167890123',
+     cost: '#600',
+     old_balance: '#5300',
+     new_balance: '#4700'
+    },
+    {
+     'Date': 'March 22, 2025',
+     'time': '03:40:15 PM',
+     id: 'Airtime_12345678905',
+     status: 'pending',
+     action: 'Purchased Airtime for +2348078901234',
+     cost: '#1500',
+     old_balance: '#6800',
+     new_balance: '#5300'
+    }];
+    */
+    
+    
+    let transactions = [];
+    
+    //Function for balance 
+    async function getBalance() {
+      try {
+        let balRes = await request('GET', null, '/v1/fund/balance')
+        console.log(balRes)
+        
+        return displayFund(balRes)
+        
+        
+      } catch (e) {
+        console.log(e)
       }
       
-      // Create transaction items
-      filteredTransactions.forEach(transaction => {
-        const transactionItem = document.createElement('div');
-        transactionItem.className = 'transactionItem';
+    }
+    
+    function displayFund(bal) {
+      document.getElementById('walletBalance').innerText = `₦${bal}`;
+    }
+    // Function to show transactions
+    async function showTransactions(filter = 'all') {
+      try {
+        if (filter === 'all') transactions = await request('GET', null, '/v1/buy/history');
         
-        // Determine status class
-        let statusClass = '';
-        if (transaction.status === 'pending') statusClass = 'status-pending';
-        if (transaction.status === 'success') statusClass = 'status-success';
-        if (transaction.status === 'failed') statusClass = 'status-failed';
+        const transactionList = document.getElementById('transactionList');
+        transactionList.innerHTML = '';
         
-        transactionItem.innerHTML = `
+        // Filter transactions
+        const filteredTransactions = filter === 'all' ?
+          transactions :
+          transactions.filter(t => t.status === filter);
+        
+        if (filteredTransactions.length === 0) {
+          transactionList.innerHTML = '<div class="no-transactions">No transactions found</div>';
+          return;
+        }
+        
+        // Create transaction items
+        filteredTransactions.forEach(transaction => {
+          const transactionItem = document.createElement('div');
+          transactionItem.className = 'transactionItem';
+          
+          // Determine status class
+          let statusClass = '';
+          if (transaction.status === 'pending') statusClass = 'status-pending';
+          if (transaction.status === 'success') statusClass = 'status-success';
+          if (transaction.status === 'failed') statusClass = 'status-failed';
+          
+          transactionItem.innerHTML = `
       <div class="transactionInfo">
         <div class="transactionAction">${transaction.description}</div>
         <div class="transactionMeta">
@@ -1900,1051 +1900,1171 @@
         <div class="transactionStatus ${statusClass}">${transaction.status}</div>
       </div>
     `;
-        
-        transactionList.appendChild(transactionItem);
-      });
-    } catch (e) {
-      console.log(e.message)
-      showAlert('warning', e.message);
+          
+          transactionList.appendChild(transactionItem);
+        });
+      } catch (e) {
+        console.log(e.message)
+        showAlert('warning', e.message);
+      }
     }
-  }
-  
-  // Theme toggle functionality
-  const themeSwitch = document.getElementById('themeSwitch');
-  const themeToggle = document.getElementById('themeToggle');
-  
-  // Check for saved theme preference or default to light
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  
-  // Apply the saved theme on page load
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    themeSwitch.checked = true;
-  }
-  
-  // Theme toggle event listener
-  themeToggle.addEventListener('click', function(e) {
-    // Don't toggle if the click was on the switch itself (it has its own handler)
-    if (e.target !== themeSwitch && !e.target.classList.contains('toggle-slider')) {
-      themeSwitch.checked = !themeSwitch.checked;
-      toggleTheme();
-    }
-  });
-  
-  // Switch change event
-  themeSwitch.addEventListener('change', toggleTheme);
-  
-  function toggleTheme() {
-    if (themeSwitch.checked) {
+    
+    // Theme toggle functionality
+    const themeSwitch = document.getElementById('themeSwitch');
+    const themeToggle = document.getElementById('themeToggle');
+    
+    // Check for saved theme preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme on page load
+    if (currentTheme === 'dark') {
       document.body.classList.add('dark-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.remove('dark-theme');
-      localStorage.setItem('theme', 'light');
+      themeSwitch.checked = true;
     }
-  }
-  // Data plans for different networks
-  let dataPlans = {
-    mtn: [
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "500mb",
-      "price": 480,
-      "days": 7,
-      "id": 104,
-      "type": "sme"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "500mb",
-      "price": 480,
-      "days": 7,
-      "id": 89,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "1GB",
-      "price": 600,
-      "days": 7,
-      "id": 103,
-      "type": "sme"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "1GB",
-      "price": 900,
-      "days": 7,
-      "id": 56,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "1.2GB",
-      "price": 850,
-      "days": 7,
-      "id": 57,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "1GB",
-      "price": 650,
-      "days": 30,
-      "id": 2,
-      "type": "CG"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "2GB",
-      "price": 1250,
-      "days": 30,
-      "id": 3,
-      "type": "CG"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "2GB",
-      "price": 1600,
-      "days": 30,
-      "id": 66,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "2.4GB",
-      "price": 2100,
-      "days": 30,
-      "id": 67,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "3GB",
-      "price": 1750,
-      "days": 30,
-      "id": 4,
-      "type": "CG"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "3.2GB",
-      "price": 1150,
-      "days": 2,
-      "id": 88,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "3.5GB",
-      "price": 2600,
-      "days": 30,
-      "id": 68,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "5GB",
-      "price": 2700,
-      "days": 30,
-      "id": 90,
-      "type": "CG"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "6.75GB",
-      "price": 3250,
-      "days": 30,
-      "id": 86,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "7GB",
-      "price": 3700,
-      "days": 7,
-      "id": 54,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "10GB",
-      "price": 4700,
-      "days": 30,
-      "id": 69,
-      "type": "gifting"
-    },
-    {
-      "networkId": 1,
-      "network": "mtn",
-      "data": "11GB",
-      "price": 3680,
-      "days": 7,
-      "id": 74,
-      "type": "gifting"
-    }],
     
-    airtel: [
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "600mb",
-      "price": 500,
-      "days": 2,
-      "id": 92,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "600mb",
-      "price": 550,
-      "days": 2,
-      "id": 107,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "1GB",
-      "price": 600,
-      "days": 1,
-      "id": 76,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "1GB",
-      "price": 600,
-      "days": 1,
-      "id": 106,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "1.5GB",
-      "price": 490,
-      "days": 1,
-      "id": 77,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "2GB",
-      "price": 580,
-      "days": 1,
-      "id": 110,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "2GB",
-      "price": 560,
-      "days": 2,
-      "id": 76,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "3GB",
-      "price": 745,
-      "days": 2,
-      "id": 74,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "3.2GB",
-      "price": 800,
-      "days": 3,
-      "id": 115,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "4GB",
-      "price": 2800,
-      "days": 30,
-      "id": 114,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "10GB",
-      "price": 3600,
-      "days": 30,
-      "id": 105,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "6.5GB",
-      "price": 2000,
-      "days": 7,
-      "id": 116,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "10GB",
-      "price": 3550,
-      "days": 30,
-      "id": 47,
-      "type": "gifting"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "500mb",
-      "price": 600,
-      "days": 7,
-      "id": 61,
-      "type": "SME"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "1GB",
-      "price": 650,
-      "days": 7,
-      "id": 62,
-      "type": "SME"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "1GB",
-      "price": 970,
-      "days": 7,
-      "id": 109,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "2GB",
-      "price": 1650,
-      "days": 30,
-      "id": 63,
-      "type": "SME"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "2GB",
-      "price": 1650,
-      "days": 30,
-      "id": 112,
-      "type": "CG"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "3GB",
-      "price": 2150,
-      "days": 30,
-      "id": 84,
-      "type": "SME"
-    },
-    {
-      "networkId": 2,
-      "network": "airtel",
-      "data": "4GB",
-      "price": 1000,
-      "days": 2,
-      "id": 111,
-      "type": "CG"
-    }],
+    // Theme toggle event listener
+    themeToggle.addEventListener('click', function(e) {
+      // Don't toggle if the click was on the switch itself (it has its own handler)
+      if (e.target !== themeSwitch && !e.target.classList.contains('toggle-slider')) {
+        themeSwitch.checked = !themeSwitch.checked;
+        toggleTheme();
+      }
+    });
     
-    glo: [
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "500mb",
-      "price": 249,
-      "days": 14,
-      "id": 93,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "0.5GB",
-      "price": 249,
-      "days": 30,
-      "id": 12,
-      "type": "CG"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "1GB",
-      "price": 279,
-      "days": 3,
-      "id": 95,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "1GB",
-      "price": 320,
-      "days": 7,
-      "id": 96,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "1GB",
-      "price": 330,
-      "days": 14,
-      "id": 94,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "1GB",
-      "price": 460,
-      "days": 30,
-      "id": 13,
-      "type": "CG"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "2GB",
-      "price": 900,
-      "days": 30,
-      "id": 14,
-      "type": "CG"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "3GB",
-      "price": 850,
-      "days": 3,
-      "id": 97,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "3GB",
-      "price": 1330,
-      "days": 30,
-      "id": 15,
-      "type": "CG"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "3GB",
-      "price": 970,
-      "days": 7,
-      "id": 96,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "3GB",
-      "price": 1200,
-      "days": 14,
-      "id": 99,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "5GB",
-      "price": 1640,
-      "days": 7,
-      "id": 100,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "5GB",
-      "price": 1650,
-      "days": 14,
-      "id": 101,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "5GB",
-      "price": 2300,
-      "days": 30,
-      "id": 16,
-      "type": "CG"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "10GB",
-      "price": 3300,
-      "days": 14,
-      "id": 102,
-      "type": "SME"
-    },
-    {
-      "networkId": 3,
-      "network": "glo",
-      "data": "10GB",
-      "price": 4300,
-      "days": 30,
-      "id": 17,
-      "type": "CG"
-    }],
+    // Switch change event
+    themeSwitch.addEventListener('change', toggleTheme);
     
-    "9mobile": [{
-      "networkId": 4,
-      "network": "9mobile",
-      "data": null,
-      "price": null,
-      "days": null,
-      "id": null
-    }]
-  };
-  
-  async function getPlans() {
-    dataPlans = await request('GET', null, '/v1/buy/plans');
-  }
-  
-  // Navigation functionality
-  const menuToggle = document.getElementById('menuToggle');
-  const sideNav = document.getElementById('sideNav');
-  const navBackdrop = document.getElementById('navBackdrop');
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  
-  function toggleNav() {
-    sideNav.classList.toggle('active');
-    navBackdrop.classList.toggle('active');
-  }
-  
-  menuToggle.addEventListener('click', toggleNav);
-  mobileMenuBtn.addEventListener('click', toggleNav);
-  navBackdrop.addEventListener('click', toggleNav);
-  
-  // Function to create data plans
-  function createPlans(network, plans) {
-    const plansList = document.getElementById('dataPlansList');
-    plansList.innerHTML = '';
+    function toggleTheme() {
+      if (themeSwitch.checked) {
+        document.body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Data plans for different networks
+    let dataPlans = {
+      mtn: [
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "500 MB",
+        price: 450,
+        days: 7,
+        id: 104,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "500 MB",
+        price: 550,
+        days: 7,
+        id: 89,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "500 MB",
+        price: 550,
+        days: 7,
+        id: 61,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "1 GB",
+        price: 500,
+        days: 7,
+        id: 103,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "1 GB",
+        price: 600,
+        days: 30,
+        id: 2,
+        type: "CG"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "1 GB",
+        price: 850,
+        days: 7,
+        id: 56,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "1 GB",
+        price: 890,
+        days: 7,
+        id: 62,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "1.2 GB",
+        price: 800,
+        days: 7,
+        id: 57,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "2 GB",
+        price: 960,
+        days: 7,
+        id: 117,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "2 GB",
+        price: 1150,
+        days: 30,
+        id: 3,
+        type: "CG"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "2 GB",
+        price: 1570,
+        days: 30,
+        id: 66,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "2.7 GB",
+        price: 2100,
+        days: 30,
+        id: 67,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "3 GB",
+        price: 1400,
+        days: 7,
+        id: 118,
+        type: "sme"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "3 GB",
+        price: 1700,
+        days: 30,
+        id: 4,
+        type: "CG"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "3.2 GB",
+        price: 1100,
+        days: 2,
+        id: 88,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "3.5 GB",
+        price: 2550,
+        days: 30,
+        id: 68,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "5 GB",
+        price: 2590,
+        days: 30,
+        id: 90,
+        type: "CG"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "6.75 GB",
+        price: 3100,
+        days: 30,
+        id: 86,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "7 GB",
+        price: 3550,
+        days: 7,
+        id: 54,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "10 GB",
+        price: 4500,
+        days: 30,
+        id: 69,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "10 GB",
+        price: 4500,
+        days: 30,
+        id: 65,
+        type: "gifting"
+      },
+      {
+        networkId: 1,
+        network: "mtn",
+        data: "11 GB",
+        price: 3500,
+        days: 7,
+        id: 74,
+        type: "gifting"
+      }],
+      
+      airtel: [
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "600 MB",
+        price: 250,
+        days: 2,
+        id: 92,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "600 MB",
+        price: 310,
+        days: 2,
+        id: 107,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "1 GB",
+        price: 400,
+        days: 1,
+        id: 76,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "1 GB",
+        price: 400,
+        days: 1,
+        id: 108,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "1 GB",
+        price: 900,
+        days: 7,
+        id: 109,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "2 GB",
+        price: 600,
+        days: 2,
+        id: 78,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "2 GB",
+        price: 600,
+        days: 1,
+        id: 110,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "2 GB",
+        price: 1550,
+        days: 30,
+        id: 83,
+        type: "sme"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "2 GB",
+        price: 1700,
+        days: 30,
+        id: 112,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "3 GB",
+        price: 800,
+        days: 2,
+        id: 79,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "3 GB",
+        price: 2050,
+        days: 30,
+        id: 84,
+        type: "some"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "3 GB",
+        price: 2200,
+        days: 30,
+        id: 113,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "3.2 GB",
+        price: 550,
+        days: 3,
+        id: 115,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "4 GB",
+        price: 900,
+        days: 2,
+        id: 111,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "4 GB",
+        price: 2650,
+        days: 30,
+        id: 114,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "5 GB",
+        price: 1590,
+        days: 7,
+        id: 127,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "5 GB",
+        price: 1650,
+        days: 7,
+        id: 106,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "6.5 GB",
+        price: 1100,
+        days: 7,
+        id: 116,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "7 GB",
+        price: 2200,
+        days: 7,
+        id: 46,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "10 GB",
+        price: 3200,
+        days: 30,
+        id: 47,
+        type: "gifting"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "10 GB",
+        price: 3200,
+        days: 30,
+        id: 105,
+        type: "CG"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "10 GB",
+        price: 4100,
+        days: 30,
+        id: 85,
+        type: "sme"
+      },
+      {
+        networkId: 2,
+        network: "airtel",
+        data: "15 GB",
+        price: 450,
+        days: 1,
+        id: 77,
+        type: "gifting"
+      }],
+      
+      glo: [
+      {
+        networkId: 3,
+        network: "glo",
+        data: "0.5 GB",
+        price: 250,
+        days: 30,
+        id: 12,
+        extra: "",
+        type: "CG"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "750 MB",
+        price: 250,
+        days: 1,
+        id: 120,
+        extra: "",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "1 GB",
+        price: 350,
+        days: 3,
+        id: 128,
+        extra: "",
+        type: "sme"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "1 GB",
+        price: 350,
+        days: 7,
+        id: 96,
+        extra: "",
+        type: "sme"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "1 GB",
+        price: 400,
+        days: 1,
+        id: 119,
+        extra: "",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "1 GB",
+        price: 450,
+        days: 30,
+        id: 13,
+        extra: "",
+        type: "CG"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "2 GB",
+        price: 850,
+        days: 30,
+        id: 14,
+        extra: "",
+        type: "CG"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "2.5 GB",
+        price: 550,
+        days: 2,
+        id: 121,
+        extra: "",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "2.6 GB",
+        price: 1050,
+        days: 30,
+        id: 123,
+        extra: "1.548 Night",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "3 GB",
+        price: 980,
+        days: 3,
+        id: 47,
+        extra: "",
+        type: "sme"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "3 GB",
+        price: 1100,
+        days: 7,
+        id: 98,
+        extra: "",
+        type: "sme"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "3 GB",
+        price: 1270,
+        days: 30,
+        id: 15,
+        extra: "",
+        type: "CG"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "5 GB",
+        price: 1550,
+        days: 60,
+        id: 124,
+        extra: "3GB Night",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "5 GB",
+        price: 1600,
+        days: 7,
+        id: 100,
+        extra: "",
+        type: "sme"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "5 GB",
+        price: 2200,
+        days: 30,
+        id: 16,
+        extra: "",
+        type: "CG"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "6.6 GB",
+        price: 2000,
+        days: 30,
+        id: 125,
+        extra: "3GB Night",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "10 GB",
+        price: 2000,
+        days: 7,
+        id: 122,
+        extra: "",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "10 GB",
+        price: 3050,
+        days: 30,
+        id: "n26",
+        extra: "2GB Night",
+        type: "gifting"
+      },
+      {
+        networkId: 3,
+        network: "glo",
+        data: "10 GB",
+        price: 4400,
+        days: 30,
+        id: 17,
+        extra: "",
+        type: "CG"
+      }],
+      
+      "9mobile": [
+      {
+        networkId: 4,
+        network: "9mobile",
+        data: null,
+        price: null,
+        days: null,
+        id: null
+      }]
+    };
     
-    plans.forEach(plan => {
-      const planItem = document.createElement('div');
-      planItem.className = 'plan-item';
-      planItem.dataset.id = plan.id;
-      planItem.innerHTML = `
+    
+    async function getPlans() {
+      dataPlans = await request('GET', null, '/v1/buy/plans');
+    }
+    
+    // Navigation functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const sideNav = document.getElementById('sideNav');
+    const navBackdrop = document.getElementById('navBackdrop');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    function toggleNav() {
+      sideNav.classList.toggle('active');
+      navBackdrop.classList.toggle('active');
+    }
+    
+    menuToggle.addEventListener('click', toggleNav);
+    mobileMenuBtn.addEventListener('click', toggleNav);
+    navBackdrop.addEventListener('click', toggleNav);
+    
+    // Function to create data plans
+    function createPlans(network, plans) {
+      const plansList = document.getElementById('dataPlansList');
+      plansList.innerHTML = '';
+      
+      plans.forEach(plan => {
+        const planItem = document.createElement('div');
+        planItem.className = 'plan-item';
+        planItem.dataset.id = plan.id;
+        planItem.innerHTML = `
         <div class="plan-details">
           <span class="plan-size">${plan.data}</span>
-          <span class="plan-duration">${plan.days} days</span>
+          <span class="plan-duration">${plan.days} days ${ plan.extra ?  ` + ${plan.extra}` : ""} </span>
         </div>
         <div class="plan-price">₦${plan.price}</div>
       `;
-      
-      planItem.addEventListener('click', () => {
-        selectDataPlan(network, plan);
-      });
-      
-      plansList.appendChild(planItem);
-    });
-  }
-  
-  // Function to show data plans overlay
-  function showDataPlans(network) {
-    const overlay = document.getElementById('dataPlansOverlay');
-    const title = document.getElementById('dataPlansTitle');
-    
-    // Capitalize network name for display
-    const networkName = network.charAt(0).toUpperCase() + network.slice(1);
-    title.textContent = `${networkName} Data Plans`;
-    
-    // Create and display plans
-    createPlans(network, dataPlans[network]);
-    
-    // Show overlay
-    overlay.style.display = 'block';
-  }
-  
-  // Function to select a data plan
-  function selectDataPlan(network, plan) {
-    // Close data plans overlay
-    document.getElementById('dataPlansOverlay').style.display = 'none';
-    
-    // Show data order overlay
-    const overlay = document.getElementById('dataOrderOverlay');
-    const title = document.getElementById('dataOrderTitle');
-    const selectedPlan = document.getElementById('selectedPlan');
-    
-    // Capitalize network name for display
-    const networkName = network.charAt(0).toUpperCase() + network.slice(1);
-    title.textContent = `${networkName} Data Order`;
-    selectedPlan.innerHTML = `${networkName} ${plan.data} Data @${plan.days}days - ₦${plan.price}`;
-    
-    // Store selected plan data
-    selectedPlan.dataset.network = network;
-    selectedPlan.dataset.planId = plan.id;
-    selectedPlan.dataset.price = plan.price;
-    
-    // Show overlay
-    overlay.style.display = 'block';
-  }
-  
-  // Function to show airtime overlay
-  function showAirtime(network) {
-    const overlay = document.getElementById('airtimeOverlay');
-    const title = document.getElementById('airtimeTitle');
-    
-    // Capitalize network name for display
-    const networkName = network.charAt(0).toUpperCase() + network.slice(1);
-    title.textContent = `${networkName} Airtime`;
-    
-    // Store network in overlay for later use
-    overlay.dataset.network = network;
-    
-    // Show overlay
-    overlay.style.display = 'block';
-  }
-  
-  // Function to show fund wallet overlay
-  function showFundWallet() {
-    document.getElementById('fundWalletOverlay').style.display = 'block';
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // Event listeners for action buttons
-  document.querySelectorAll('.actionBtn').forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const network = this.dataset.network;
-      const type = this.dataset.type;
-      
-      if (type === 'data') {
-        showDataPlans(network);
-      } else if (type === 'airtime') {
-        showAirtime(network);
-      }
-    });
-  });
-  
-  
-  
-  
-  // Fund wallet button
-  document.getElementById('fundWalletBtn').addEventListener('click', showFundWallet);
-  
-  // Show transactions button
-  document.getElementById('showTransactions').addEventListener('click', function(e) {
-    e.preventDefault();
-    toggleNav()
-    document.getElementById('transactionContainer').scrollIntoView({ behavior: 'smooth' });
-  });
-  
-  // Mobile transactions button
-  document.getElementById('mobileTransactionsBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('transactionContainer').scrollIntoView({ behavior: 'smooth' });
-  });
-  
-  // Transaction filter buttons
-  document.querySelectorAll('.filterBtn').forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      document.querySelectorAll('.filterBtn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Filter transactions
-      const filter = this.dataset.filter;
-      showTransactions(filter);
-    });
-  });
-  
-  // Close button event listeners
-  document.getElementById('closeDataPlans').addEventListener('click', function() {
-    document.getElementById('dataPlansOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('closeAirtime').addEventListener('click', function() {
-    document.getElementById('airtimeOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('closeDataOrder').addEventListener('click', function() {
-    document.getElementById('dataOrderOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('closeFundWallet').addEventListener('click', function() {
-    document.getElementById('fundWalletOverlay').style.display = 'none';
-  });
-  
-  // Cancel button event listeners
-  document.getElementById('cancelAirtimeBtn').addEventListener('click', function() {
-    document.getElementById('airtimeOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('cancelDataBtn').addEventListener('click', function() {
-    document.getElementById('dataOrderOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('cancelFundWallet').addEventListener('click', function() {
-    document.getElementById('fundWalletOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('closeContact').addEventListener('click', function() {
-    document.getElementById('contactOverlay').style.display = 'none';
-  });
-  
-  document.getElementById('showContact').addEventListener('click', function() {
-    document.getElementById('contactOverlay').style.display = 'block';
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // Buy button event listeners
-  document.getElementById('buyAirtimeBtn').addEventListener('click', async function() {
-    let buyAirtimeLoading = showLoading('Airtime Purchase')
-    const amount = document.getElementById('airtimeAmount').value;
-    const phone = document.getElementById('airtimePhone').value;
-    const network = document.getElementById('airtimeOverlay').dataset.network;
-    
-    updateLoading(buyAirtimeLoading, 'message', 'Validating input')
-    if (!amount || amount < 100) {
-      showAlert('warning', 'Please enter a valid amount (minimum ₦100)');
-      updateLoading(buyAirtimeLoading, 'error', 'Please enter a valid amount (minimum ₦50)')
-      hideLoading(buyAirtimeLoading)
-      return;
-    }
-    
-    updateLoading(buyAirtimeLoading, 'message', 'Validating phone number')
-    if (!phone || phone.length !== 10) {
-      showAlert('warning', 'Please enter a valid 10-digit phone number');
-      hideLoading(buyAirtimeLoading)
-      return;
-    }
-    if (phone[0] === '0') {
-      showAlert('warning', 'The phone number should not start with 0!');
-      hideLoading(buyAirtimeLoading)
-      return;
-    }
-    
-    
-    hideLoading(buyAirtimeLoading, 1500)
-    // In a real app, you would process the payment here
-    showAlert('confirm', `Processing ${network} airtime purchase:\nAmount: ₦${amount}\nPhone: +234${phone}`, async () => {
-      console.log({
-        network,
-        amount,
-        phone
-      })
-      
-      try {
-        buyAirtimeLoading = showLoading('Airtime Purchase')
         
-        let buyRes = await request('POST', {
-            network: network,
-            amount: amount,
-            phone: phone,
-          },
-          '/v1/buy/airtime'
-        );
-        console.log(buyRes)
-        hideLoading(buyAirtimeLoading)
-        showAlert('success', buyRes.message)
-      } catch (e) {
-        hideLoading(buyAirtimeLoading)
-        console.log(e.message)
-        showAlert('warning', e.message)
-      }
-      
-      
-      
-      
-    });
-    
-    
-    
-    // Close overlay
-    document.getElementById('airtimeOverlay').style.display = 'none';
-    
-    // Reset form
-    document.getElementById('airtimeAmount').value = '';
-    document.getElementById('airtimePhone').value = '';
-  });
-  
-  document.getElementById('buyDataBtn').addEventListener('click', async function() {
-    let buyDataLoading = showLoading('Purchasing data');
-    
-    const phone = document.getElementById('dataPhone').value;
-    const selectedPlan = document.getElementById('selectedPlan');
-    const network = selectedPlan.dataset.network;
-    const price = selectedPlan.dataset.price;
-    const planId = selectedPlan.dataset.planId;
-    
-    updateLoading(buyDataLoading, 'message', 'validating phone number.')
-    if (!phone || phone.length !== 10) {
-      showAlert('warning', 'Please enter a valid 10-digit phone number');
-      hideLoading(buyDataLoading)
-      return;
-    }
-    if (phone[0] === '0') {
-      showAlert('warning', 'The phone number should not start with 0!');
-      hideLoading(buyDataLoading)
-      return;
-    }
-    updateLoading(buyDataLoading, 'message', 'Purchasing data')
-    
-    // In a real app, you would process the payment here
-    showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, async () => {
-      console.log({ network, planId, phone })
-      buyDataLoading = showLoading('Purchasing data', true);
-      
-      try {
-        let buyRes = await request('POST', {
-            network: network,
-            planId: Number(planId),
-            phone: phone,
-          },
-          '/v1/buy/data'
-        );
-        console.log(buyRes)
-        showAlert('success', buyRes.message)
-        hideLoading(buyDataLoading)
-      } catch (e) {
-        hideLoading(buyDataLoading)
-        console.log(e.message)
-        showAlert('warning', e.message)
-      }
-      
-      hideLoading(buyDataLoading)
-      
-    });
-    
-    hideLoading(buyDataLoading)
-    
-    
-    // Close overlay
-    document.getElementById('dataOrderOverlay').style.display = 'none';
-    
-    // Reset form
-    document.getElementById('dataPhone').value = '';
-  });
-  
-  
-  
-  
-  // Fund wallet proceed button
-  document.getElementById('proceedFundWallet').addEventListener('click', async function() {
-    let proceedFundWalletLoader = showLoading('Funding Wallet');
-    
-    const amount = document.getElementById('fundAmount').value;
-    
-    updateLoading(proceedFundWalletLoader, 'message', 'validating amount');
-    if (!amount || amount < 100) {
-      showAlert('warning', 'Please enter a valid amount (minimum ₦100)');
-      hideLoading(proceedFundWalletLoader, 1200)
-      return;
-    }
-    
-    // In a real app, you would process the payment here
-    showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, async () => {
-      let getFundLink = showLoading('Funding Wallet');
-      
-      //tryit
-      try {
-        fundRes = await request('POST', {
-            amount: amount,
-          },
-          '/v1/fund'
-        );
-        console.log('fundRes')
-        console.log(fundRes)
-        console.log('fundRes')
-        
-        if (!fundRes.success) throw new Error('Unable to fund wallet')
-        
-        showAlert('confirm', 'Continue to pay', () => {
-          let redirect = showLoading('Getting Account numbers');
-          
-          let url = fundRes.data.data.authorization_url;
-          console.log(url);
-          window.location.href = url;
+        planItem.addEventListener('click', () => {
+          selectDataPlan(network, plan);
         });
-        hideLoading(getFundLink)
         
-      } catch (e) {
-        hideLoading(getFundLink)
-        console.log(e.message)
-        showAlert('warning', e.message)
-      }
-      
-      hideLoading(proceedFundWalletLoader)
-      
-      
-    });
-    
-    
-    hideLoading(proceedFundWalletLoader, 1200)
-    
-    // Close overlay
-    document.getElementById('fundWalletOverlay').style.display = 'none';
-    
-    // Reset form
-    document.getElementById('fundAmount').value = '';
-  });
-  
-  
-  
-  
-  
-  // Payment method selection
-  document.querySelectorAll('.payment-method').forEach(method => {
-    method.addEventListener('click', function() {
-      document.querySelectorAll('.payment-method').forEach(m => {
-        m.classList.remove('active');
+        plansList.appendChild(planItem);
       });
-      this.classList.add('active');
+    }
+    
+    // Function to show data plans overlay
+    function showDataPlans(network) {
+      const overlay = document.getElementById('dataPlansOverlay');
+      const title = document.getElementById('dataPlansTitle');
+      
+      // Capitalize network name for display
+      const networkName = network.charAt(0).toUpperCase() + network.slice(1);
+      title.textContent = `${networkName} Data Plans`;
+      
+      // Create and display plans
+      createPlans(network, dataPlans[network]);
+      
+      // Show overlay
+      overlay.style.display = 'block';
+    }
+    
+    // Function to select a data plan
+    function selectDataPlan(network, plan) {
+      // Close data plans overlay
+      document.getElementById('dataPlansOverlay').style.display = 'none';
+      
+      // Show data order overlay
+      const overlay = document.getElementById('dataOrderOverlay');
+      const title = document.getElementById('dataOrderTitle');
+      const selectedPlan = document.getElementById('selectedPlan');
+      
+      // Capitalize network name for display
+      const networkName = network.charAt(0).toUpperCase() + network.slice(1);
+      title.textContent = `${networkName} Data Order`;
+      selectedPlan.innerHTML = `${networkName} ${plan.data} Data @${plan.days}days ${ plan.extra ?  ` + ${plan.extra}` : ""} - ₦${plan.price}`;
+      
+      // Store selected plan data
+      selectedPlan.dataset.network = network;
+      selectedPlan.dataset.planId = plan.id;
+      selectedPlan.dataset.price = plan.price;
+      
+      // Show overlay
+      overlay.style.display = 'block';
+    }
+    
+    // Function to show airtime overlay
+    function showAirtime(network) {
+      const overlay = document.getElementById('airtimeOverlay');
+      const title = document.getElementById('airtimeTitle');
+      
+      // Capitalize network name for display
+      const networkName = network.charAt(0).toUpperCase() + network.slice(1);
+      title.textContent = `${networkName} Airtime`;
+      
+      // Store network in overlay for later use
+      overlay.dataset.network = network;
+      
+      // Show overlay
+      overlay.style.display = 'block';
+    }
+    
+    // Function to show fund wallet overlay
+    function showFundWallet() {
+      document.getElementById('fundWalletOverlay').style.display = 'block';
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Event listeners for action buttons
+    document.querySelectorAll('.actionBtn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const network = this.dataset.network;
+        const type = this.dataset.type;
+        
+        if (type === 'data') {
+          showDataPlans(network);
+        } else if (type === 'airtime') {
+          showAirtime(network);
+        }
+      });
     });
-  });
-  
-  
-  
-  // Close overlays when clicking outside content
-  window.addEventListener('click', function(e) {
-    const dataPlansOverlay = document.getElementById('dataPlansOverlay');
-    const airtimeOverlay = document.getElementById('airtimeOverlay');
-    const dataOrderOverlay = document.getElementById('dataOrderOverlay');
-    const fundWalletOverlay = document.getElementById('fundWalletOverlay');
-    const contactOverlay = document.getElementById('contactOverlay');
     
-    if (e.target === dataPlansOverlay) {
-      dataPlansOverlay.style.display = 'none';
-    }
     
-    if (e.target === airtimeOverlay) {
-      airtimeOverlay.style.display = 'none';
-    }
     
-    if (e.target === dataOrderOverlay) {
-      dataOrderOverlay.style.display = 'none';
-    }
     
-    if (e.target === fundWalletOverlay) {
-      fundWalletOverlay.style.display = 'none';
-    }
-    if (e.target === contactOverlay) {
-      contactOverlay.style.display = 'none';
-    }
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  // Custom alert function
-  function showAlert(kind, message, okFunction = null, showCancel = false) {
-    // Validate kind parameter
-    const validKinds = ['info', 'success', 'warning', 'confirm', 'follow'];
-    if (!validKinds.includes(kind)) {
-      console.error('Invalid alert kind. Must be one of: info, success, warning, confirm, follow');
-      return Promise.reject('Invalid alert kind');
-    }
+    // Fund wallet button
+    document.getElementById('fundWalletBtn').addEventListener('click', showFundWallet);
     
-    // Return a Promise that resolves when user clicks OK or rejects when canceled
-    return new Promise((resolve, reject) => {
-      // Create alert overlay
-      const alertOverlay = document.createElement('div');
-      alertOverlay.className = 'alert-overlay';
+    // Show transactions button
+    document.getElementById('showTransactions').addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleNav()
+      document.getElementById('transactionContainer').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Mobile transactions button
+    document.getElementById('mobileTransactionsBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('transactionContainer').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Transaction filter buttons
+    document.querySelectorAll('.filterBtn').forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filterBtn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        // Filter transactions
+        const filter = this.dataset.filter;
+        showTransactions(filter);
+      });
+    });
+    
+    // Close button event listeners
+    document.getElementById('closeDataPlans').addEventListener('click', function() {
+      document.getElementById('dataPlansOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('closeAirtime').addEventListener('click', function() {
+      document.getElementById('airtimeOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('closeDataOrder').addEventListener('click', function() {
+      document.getElementById('dataOrderOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('closeFundWallet').addEventListener('click', function() {
+      document.getElementById('fundWalletOverlay').style.display = 'none';
+    });
+    
+    // Cancel button event listeners
+    document.getElementById('cancelAirtimeBtn').addEventListener('click', function() {
+      document.getElementById('airtimeOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('cancelDataBtn').addEventListener('click', function() {
+      document.getElementById('dataOrderOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('cancelFundWallet').addEventListener('click', function() {
+      document.getElementById('fundWalletOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('closeContact').addEventListener('click', function() {
+      document.getElementById('contactOverlay').style.display = 'none';
+    });
+    
+    document.getElementById('showContact').addEventListener('click', function() {
+      document.getElementById('contactOverlay').style.display = 'block';
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Buy button event listeners
+    document.getElementById('buyAirtimeBtn').addEventListener('click', async function() {
+      let buyAirtimeLoading = showLoading('Airtime Purchase')
+      const amount = document.getElementById('airtimeAmount').value;
+      const phone = document.getElementById('airtimePhone').value;
+      const network = document.getElementById('airtimeOverlay').dataset.network;
       
-      // Create alert box
-      const alertBox = document.createElement('div');
-      alertBox.className = `alert-box alert-${kind}`;
-      
-      // Set alert content based on kind
-      let title, iconClass, showCancelBtn;
-      
-      switch (kind) {
-        case 'info':
-          title = 'Information';
-          iconClass = 'fas fa-info';
-          showCancelBtn = false;
-          break;
-        case 'success':
-          title = 'Success';
-          iconClass = 'fas fa-check';
-          showCancelBtn = false;
-          break;
-        case 'warning':
-          title = 'Warning';
-          iconClass = 'fas fa-exclamation-triangle';
-          showCancelBtn = showCancel || false;
-          break;
-        case 'confirm':
-          title = 'Confirmation';
-          iconClass = 'fas fa-question';
-          showCancelBtn = true;
-          break;
-        case 'follow':
-          title = 'Action Required';
-          iconClass = 'fas fa-exclamation';
-          showCancelBtn = false;
-          break;
+      updateLoading(buyAirtimeLoading, 'message', 'Validating input')
+      if (!amount || amount < 100) {
+        showAlert('warning', 'Please enter a valid amount (minimum ₦100)');
+        updateLoading(buyAirtimeLoading, 'error', 'Please enter a valid amount (minimum ₦50)')
+        hideLoading(buyAirtimeLoading)
+        return;
       }
       
-      // Build alert HTML
-      alertBox.innerHTML = `
+      updateLoading(buyAirtimeLoading, 'message', 'Validating phone number')
+      if (!phone || phone.length !== 10) {
+        showAlert('warning', 'Please enter a valid 10-digit phone number');
+        hideLoading(buyAirtimeLoading)
+        return;
+      }
+      if (phone[0] === '0') {
+        showAlert('warning', 'The phone number should not start with 0!');
+        hideLoading(buyAirtimeLoading)
+        return;
+      }
+      
+      
+      hideLoading(buyAirtimeLoading, 1500)
+      // In a real app, you would process the payment here
+      showAlert('confirm', `Processing ${network} airtime purchase:\nAmount: ₦${amount}\nPhone: +234${phone}`, async () => {
+        console.log({
+          network,
+          amount,
+          phone
+        })
+        
+        try {
+          buyAirtimeLoading = showLoading('Airtime Purchase')
+          
+          let buyRes = await request('POST', {
+              network: network,
+              amount: amount,
+              phone: phone,
+            },
+            '/v1/buy/airtime'
+          );
+          console.log(buyRes)
+          hideLoading(buyAirtimeLoading)
+          showAlert('success', buyRes.message)
+        } catch (e) {
+          hideLoading(buyAirtimeLoading)
+          console.log(e.message)
+          showAlert('warning', e.message)
+        }
+        
+        
+        
+        
+      });
+      
+      
+      
+      // Close overlay
+      document.getElementById('airtimeOverlay').style.display = 'none';
+      
+      // Reset form
+      document.getElementById('airtimeAmount').value = '';
+      document.getElementById('airtimePhone').value = '';
+    });
+    
+    document.getElementById('buyDataBtn').addEventListener('click', async function() {
+      let buyDataLoading = showLoading('Purchasing data');
+      
+      const phone = document.getElementById('dataPhone').value;
+      const selectedPlan = document.getElementById('selectedPlan');
+      const network = selectedPlan.dataset.network;
+      const price = selectedPlan.dataset.price;
+      const planId = selectedPlan.dataset.planId;
+      
+      updateLoading(buyDataLoading, 'message', 'validating phone number.')
+      if (!phone || phone.length !== 10) {
+        showAlert('warning', 'Please enter a valid 10-digit phone number');
+        hideLoading(buyDataLoading)
+        return;
+      }
+      if (phone[0] === '0') {
+        showAlert('warning', 'The phone number should not start with 0!');
+        hideLoading(buyDataLoading)
+        return;
+      }
+      updateLoading(buyDataLoading, 'message', 'Purchasing data')
+      
+      // In a real app, you would process the payment here
+      showAlert('confirm', `Processing ${network} data purchase:\nPlan: ${selectedPlan.textContent}\nPhone: +234${phone}`, async () => {
+        console.log({ network, planId, phone })
+        buyDataLoading = showLoading('Purchasing data', true);
+        
+        try {
+          let buyRes = await request('POST', {
+              network: network,
+              planId: Number(planId),
+              phone: phone,
+            },
+            '/v1/buy/data'
+          );
+          console.log(buyRes)
+          showAlert('success', buyRes.message)
+          hideLoading(buyDataLoading)
+        } catch (e) {
+          hideLoading(buyDataLoading)
+          console.log(e.message)
+          showAlert('warning', e.message)
+        }
+        
+        hideLoading(buyDataLoading)
+        
+      });
+      
+      hideLoading(buyDataLoading)
+      
+      
+      // Close overlay
+      document.getElementById('dataOrderOverlay').style.display = 'none';
+      
+      // Reset form
+      document.getElementById('dataPhone').value = '';
+    });
+    
+    
+    
+    
+    // Fund wallet proceed button
+    document.getElementById('proceedFundWallet').addEventListener('click', async function() {
+      let proceedFundWalletLoader = showLoading('Funding Wallet');
+      
+      const amount = document.getElementById('fundAmount').value;
+      
+      updateLoading(proceedFundWalletLoader, 'message', 'validating amount');
+      if (!amount || amount < 100) {
+        showAlert('warning', 'Please enter a valid amount (minimum ₦100)');
+        hideLoading(proceedFundWalletLoader, 1200)
+        return;
+      }
+      
+      // In a real app, you would process the payment here
+      showAlert('confirm', `Process wallet funding:\nAmount: ₦${amount}`, async () => {
+        let getFundLink = showLoading('Funding Wallet');
+        
+        //tryit
+        try {
+          fundRes = await request('POST', {
+              amount: amount,
+            },
+            '/v1/fund'
+          );
+          console.log('fundRes')
+          console.log(fundRes)
+          console.log('fundRes')
+          
+          if (!fundRes.success) throw new Error('Unable to fund wallet')
+          
+          showAlert('confirm', 'Continue to pay', () => {
+            let redirect = showLoading('Getting Account numbers');
+            
+            let url = fundRes.data.data.authorization_url;
+            console.log(url);
+            window.location.href = url;
+          });
+          hideLoading(getFundLink)
+          
+        } catch (e) {
+          hideLoading(getFundLink)
+          console.log(e.message)
+          showAlert('warning', e.message)
+        }
+        
+        hideLoading(proceedFundWalletLoader)
+        
+        
+      });
+      
+      
+      hideLoading(proceedFundWalletLoader, 1200)
+      
+      // Close overlay
+      document.getElementById('fundWalletOverlay').style.display = 'none';
+      
+      // Reset form
+      document.getElementById('fundAmount').value = '';
+    });
+    
+    
+    
+    
+    
+    // Payment method selection
+    document.querySelectorAll('.payment-method').forEach(method => {
+      method.addEventListener('click', function() {
+        document.querySelectorAll('.payment-method').forEach(m => {
+          m.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+    
+    
+    
+    // Close overlays when clicking outside content
+    window.addEventListener('click', function(e) {
+      const dataPlansOverlay = document.getElementById('dataPlansOverlay');
+      const airtimeOverlay = document.getElementById('airtimeOverlay');
+      const dataOrderOverlay = document.getElementById('dataOrderOverlay');
+      const fundWalletOverlay = document.getElementById('fundWalletOverlay');
+      const contactOverlay = document.getElementById('contactOverlay');
+      
+      if (e.target === dataPlansOverlay) {
+        dataPlansOverlay.style.display = 'none';
+      }
+      
+      if (e.target === airtimeOverlay) {
+        airtimeOverlay.style.display = 'none';
+      }
+      
+      if (e.target === dataOrderOverlay) {
+        dataOrderOverlay.style.display = 'none';
+      }
+      
+      if (e.target === fundWalletOverlay) {
+        fundWalletOverlay.style.display = 'none';
+      }
+      if (e.target === contactOverlay) {
+        contactOverlay.style.display = 'none';
+      }
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    // Custom alert function
+    function showAlert(kind, message, okFunction = null, showCancel = false) {
+      // Validate kind parameter
+      const validKinds = ['info', 'success', 'warning', 'confirm', 'follow'];
+      if (!validKinds.includes(kind)) {
+        console.error('Invalid alert kind. Must be one of: info, success, warning, confirm, follow');
+        return Promise.reject('Invalid alert kind');
+      }
+      
+      // Return a Promise that resolves when user clicks OK or rejects when canceled
+      return new Promise((resolve, reject) => {
+        // Create alert overlay
+        const alertOverlay = document.createElement('div');
+        alertOverlay.className = 'alert-overlay';
+        
+        // Create alert box
+        const alertBox = document.createElement('div');
+        alertBox.className = `alert-box alert-${kind}`;
+        
+        // Set alert content based on kind
+        let title, iconClass, showCancelBtn;
+        
+        switch (kind) {
+          case 'info':
+            title = 'Information';
+            iconClass = 'fas fa-info';
+            showCancelBtn = false;
+            break;
+          case 'success':
+            title = 'Success';
+            iconClass = 'fas fa-check';
+            showCancelBtn = false;
+            break;
+          case 'warning':
+            title = 'Warning';
+            iconClass = 'fas fa-exclamation-triangle';
+            showCancelBtn = showCancel || false;
+            break;
+          case 'confirm':
+            title = 'Confirmation';
+            iconClass = 'fas fa-question';
+            showCancelBtn = true;
+            break;
+          case 'follow':
+            title = 'Action Required';
+            iconClass = 'fas fa-exclamation';
+            showCancelBtn = false;
+            break;
+        }
+        
+        // Build alert HTML
+        alertBox.innerHTML = `
             <div class="alert-header">
                 <div class="alert-icon">
                     <i class="${iconClass}"></i>
@@ -2959,96 +3079,96 @@
                 <button class="alert-btn alert-btn-ok">${kind === 'follow' ? 'Continue' : 'OK'}</button>
             </div>
         `;
-      
-      // Add to overlay
-      alertOverlay.appendChild(alertBox);
-      
-      // Add to alert container
-      const alertContainer = document.getElementById('alertContainer');
-      alertContainer.appendChild(alertOverlay);
-      
-      // Set up event listeners
-      const okButton = alertBox.querySelector('.alert-btn-ok');
-      const cancelButton = alertBox.querySelector('.alert-btn-cancel');
-      
-      // Close alert function
-      const closeAlert = (overlay) => {
-        if (overlay && overlay.parentNode) {
-          overlay.parentNode.removeChild(overlay);
-        }
-      };
-      
-      // OK button handler
-      okButton.addEventListener('click', function() {
-        if (okFunction && typeof okFunction === 'function') {
-          okFunction();
-        }
-        closeAlert(alertOverlay);
-        resolve('confirmed'); // Resolve the promise
-      });
-      
-      // Cancel button handler
-      if (cancelButton) {
-        cancelButton.addEventListener('click', function() {
+        
+        // Add to overlay
+        alertOverlay.appendChild(alertBox);
+        
+        // Add to alert container
+        const alertContainer = document.getElementById('alertContainer');
+        alertContainer.appendChild(alertOverlay);
+        
+        // Set up event listeners
+        const okButton = alertBox.querySelector('.alert-btn-ok');
+        const cancelButton = alertBox.querySelector('.alert-btn-cancel');
+        
+        // Close alert function
+        const closeAlert = (overlay) => {
+          if (overlay && overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
+          }
+        };
+        
+        // OK button handler
+        okButton.addEventListener('click', function() {
+          if (okFunction && typeof okFunction === 'function') {
+            okFunction();
+          }
           closeAlert(alertOverlay);
-          reject('cancelled'); // Reject the promise when canceled
+          resolve('confirmed'); // Resolve the promise
         });
-      }
-      
-      // Close on overlay click (outside the alert box)
-      alertOverlay.addEventListener('click', function(e) {
-        if (e.target === alertOverlay) {
-          closeAlert(alertOverlay);
-          reject('cancelled'); // Reject when clicking outside
+        
+        // Cancel button handler
+        if (cancelButton) {
+          cancelButton.addEventListener('click', function() {
+            closeAlert(alertOverlay);
+            reject('cancelled'); // Reject the promise when canceled
+          });
         }
-      });
-      
-      // Close on Escape key
-      const escapeHandler = function(e) {
-        if (e.key === 'Escape') {
-          closeAlert(alertOverlay);
+        
+        // Close on overlay click (outside the alert box)
+        alertOverlay.addEventListener('click', function(e) {
+          if (e.target === alertOverlay) {
+            closeAlert(alertOverlay);
+            reject('cancelled'); // Reject when clicking outside
+          }
+        });
+        
+        // Close on Escape key
+        const escapeHandler = function(e) {
+          if (e.key === 'Escape') {
+            closeAlert(alertOverlay);
+            document.removeEventListener('keydown', escapeHandler);
+            reject('cancelled'); // Reject when Escape pressed
+          }
+        };
+        document.addEventListener('keydown', escapeHandler);
+        
+        // Clean up event listener when alert is closed
+        alertOverlay.addEventListener('close', function() {
           document.removeEventListener('keydown', escapeHandler);
-          reject('cancelled'); // Reject when Escape pressed
-        }
-      };
-      document.addEventListener('keydown', escapeHandler);
-      
-      // Clean up event listener when alert is closed
-      alertOverlay.addEventListener('close', function() {
-        document.removeEventListener('keydown', escapeHandler);
+        });
       });
-    });
-  }
-  
-  // Function to close alert
-  function closeAlert(alertElement) {
-    alertElement.style.opacity = '0';
-    alertElement.style.transform = 'translateY(-20px)';
+    }
     
-    setTimeout(() => {
-      if (alertElement.parentNode) {
-        alertElement.parentNode.removeChild(alertElement);
-      }
-    }, 300);
-  }
-  
-  
-  
-  
-  
-  //Loading 
-  // Loading component function
-  function showLoading(message = 'Loading...', showProgress = false, size = 'default') {
-    // Create loading overlay
-    const loadingOverlay = document.createElement('div');
-    loadingOverlay.className = 'loading-overlay';
+    // Function to close alert
+    function closeAlert(alertElement) {
+      alertElement.style.opacity = '0';
+      alertElement.style.transform = 'translateY(-20px)';
+      
+      setTimeout(() => {
+        if (alertElement.parentNode) {
+          alertElement.parentNode.removeChild(alertElement);
+        }
+      }, 300);
+    }
     
-    // Create loading container
-    const loadingContainer = document.createElement('div');
-    loadingContainer.className = `loading-container ${size === 'small' ? 'loading-small' : ''}`;
     
-    // Build loading HTML
-    loadingContainer.innerHTML = `
+    
+    
+    
+    //Loading 
+    // Loading component function
+    function showLoading(message = 'Loading...', showProgress = false, size = 'default') {
+      // Create loading overlay
+      const loadingOverlay = document.createElement('div');
+      loadingOverlay.className = 'loading-overlay';
+      
+      // Create loading container
+      const loadingContainer = document.createElement('div');
+      loadingContainer.className = `loading-container ${size === 'small' ? 'loading-small' : ''}`;
+      
+      // Build loading HTML
+      loadingContainer.innerHTML = `
         <div class="loading-spinner">
           <div class="spinner-ring"></div>
           <div class="spinner-ring"></div>
@@ -3063,77 +3183,77 @@
           </div>
         ` : ''}
       `;
-    
-    // Add to overlay
-    loadingOverlay.appendChild(loadingContainer);
-    
-    // Add to loading container
-    const mainLoadingContainer = document.getElementById('loadingContainer');
-    mainLoadingContainer.appendChild(loadingOverlay);
-    
-    // Return the loading element for later manipulation
-    return loadingOverlay;
-  }
-  
-  // Function to update loading state
-  function updateLoading(loadingElement, state, message = null) {
-    const spinner = loadingElement.querySelector('.loading-spinner');
-    const messageEl = loadingElement.querySelector('.loading-message');
-    
-    // Remove existing state classes
-    spinner.classList.remove('loading-success', 'loading-error');
-    
-    // Apply new state
-    if (state === 'success') {
-      spinner.classList.add('loading-success');
-      if (message) messageEl.innerHTML = message;
-    } else if (state === 'error') {
-      spinner.classList.add('loading-error');
-      if (message) messageEl.innerHTML = message;
-    } else if (state === 'message' && message) {
-      messageEl.innerHTML = message;
-    }
-  }
-  
-  // Function to hide loading
-  function hideLoading(loadingElement, delay = 0) {
-    setTimeout(() => {
-      loadingElement.style.opacity = '0';
-      loadingElement.style.transform = 'scale(0.9)';
       
+      // Add to overlay
+      loadingOverlay.appendChild(loadingContainer);
+      
+      // Add to loading container
+      const mainLoadingContainer = document.getElementById('loadingContainer');
+      mainLoadingContainer.appendChild(loadingOverlay);
+      
+      // Return the loading element for later manipulation
+      return loadingOverlay;
+    }
+    
+    // Function to update loading state
+    function updateLoading(loadingElement, state, message = null) {
+      const spinner = loadingElement.querySelector('.loading-spinner');
+      const messageEl = loadingElement.querySelector('.loading-message');
+      
+      // Remove existing state classes
+      spinner.classList.remove('loading-success', 'loading-error');
+      
+      // Apply new state
+      if (state === 'success') {
+        spinner.classList.add('loading-success');
+        if (message) messageEl.innerHTML = message;
+      } else if (state === 'error') {
+        spinner.classList.add('loading-error');
+        if (message) messageEl.innerHTML = message;
+      } else if (state === 'message' && message) {
+        messageEl.innerHTML = message;
+      }
+    }
+    
+    // Function to hide loading
+    function hideLoading(loadingElement, delay = 0) {
       setTimeout(() => {
-        if (loadingElement.parentNode) {
-          loadingElement.parentNode.removeChild(loadingElement);
-        }
-      }, 300);
-    }, delay);
-  }
-  
-  
-  // Initialize transactions on page load
-  document.addEventListener('DOMContentLoaded', async function() {
-    try {
-      
-      await showTransactions();
-      
-      await getPlans();
-      await getBalance();
-      
-    } catch (e) {
-      showAlert('warning', e.message)
+        loadingElement.style.opacity = '0';
+        loadingElement.style.transform = 'scale(0.9)';
+        
+        setTimeout(() => {
+          if (loadingElement.parentNode) {
+            loadingElement.parentNode.removeChild(loadingElement);
+          }
+        }, 300);
+      }, delay);
     }
     
-  });
+    
+    // Initialize transactions on page load
+    document.addEventListener('DOMContentLoaded', async function() {
+      try {
+        
+        await showTransactions();
+        
+        await getPlans();
+        await getBalance();
+        
+      } catch (e) {
+        showAlert('warning', e.message)
+      }
+      
+    });
+    
+    async function wakeApi() {
+      //wake api
+      let readyRes = await fetch(apiUrl)
+      console.log(readyRes)
+      if (readyRes.status !== 200) throw new Error("Please try again")
+    }
+    wakeApi()
+  </script>
   
-  async function wakeApi() {
-    //wake api
-    let readyRes = await fetch(apiUrl)
-    console.log(readyRes)
-    if (readyRes.status !== 200) throw new Error("Please try again")
-  }
-  wakeApi()
- </script>
- 
 </body>
 
 </html>
