@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWB API Documentation | Data & Airtime Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <style>
+    :root {
+      --sidebar-bg: #0a1628;
+      --sidebar-text: #94a3b8;
+      --sidebar-active: #10b981;
+      --sidebar-hover: #1e293b;
+      --accent: #10b981;
+      --accent-light: #d1fae5;
+      --accent-dark: #059669;
+      --blue: #3b82f6;
+      --blue-light: #dbeafe;
+      --red: #ef4444;
+      --red-light: #fee2e2;
+      --orange: #f59e0b;
+      --orange-light: #fef3c7;
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --code-bg: #0f172a;
+      --sidebar-width: 260px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      display: flex;
+      max-width: 99vw;
+      min-height: 100vh;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    
+    /* 
+    Mobile sidebar behavior */
+
+    @media (max-width: 900px) {
+
+      .menu-toggle {
+        display: block;
+      }
+      
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        display: block;
+      }
+      
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      
+      body.sidebar-open {
+        overflow: hidden;
+      }
+      
+    }
+
+    
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--sidebar-bg);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #1e293b;
+    }
+    
+    .sidebar-brand {
+      padding: 1.5rem 1.25rem 1rem;
+      border-bottom: 1px solid #1e293b;
+    }
+    
+    .brand-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.3px;
+    }
+    
+    .brand-logo span {
+      color: var(--accent);
+    }
+    
+    .brand-version {
+      display: inline-block;
+      margin-top: 0.4rem;
+      background: #1e293b;
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    
+    .base-url {
+      margin: 0.75rem 1.25rem;
+      background: #111827;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+    }
+    
+    .base-url-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    
+    .base-url-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #7dd3fc;
+      word-break: break-all;
+    }
+    
+    .sidebar-nav {
+      padding: 0.5rem 0 2rem;
+    }
+    
+    .nav-section {
+      padding: 1rem 1.25rem 0.25rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #475569;
+    }
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.25rem;
+      color: var(--sidebar-text);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+    }
+    
+    .nav-link:hover {
+      color: #f1f5f9;
+      background: var(--sidebar-hover);
+    }
+    
+    .nav-link.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: rgba(16, 185, 129, 0.06);
+    }
+    
+    .nav-link .method-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .dot-post {
+      background: var(--blue);
+    }
+    
+    .dot-get {
+      background: var(--accent);
+    }
+    
+    /* ── MAIN CONTENT ── */
+    .main {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+    }
+    
+    .topbar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    
+    .topbar-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .topbar-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+    
+    .topbar-badge {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+    
+      /*
+    .content {
+      padding: 2rem;
+      max-width: 1200px;
+    }
+      */
+    
+    /* ── CARDS ── */
+    .api-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      scroll-margin-top: 80px;
+    }
+    
+    .card:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+    
+    .card-header {
+      padding: 1rem 1.25rem;
+      background: #fafcff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    
+    .method {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .method.post {
+      background: var(--blue-light);
+      color: #1d4ed8;
+    }
+    
+    .method.get {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+    
+    .endpoint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    .card-desc {
+      padding: 0.9rem 1.25rem 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .card-desc i {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    
+    /* ── SECTION LABELS ── */
+    .section-label {
+      padding: 0.85rem 1.25rem 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    
+    .section-label i {
+      font-size: 0.65rem;
+    }
+    
+    /* ── PARAM TABLE ── */
+    .param-table {
+      margin: 0 1.25rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.78rem;
+    }
+    
+    .param-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .param-table th {
+      background: #f8fafc;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .param-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: top;
+      color: var(--text-secondary);
+    }
+    
+    .param-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .param-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    
+    .param-type {
+      color: var(--blue);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+    }
+    
+    .tag-required {
+      background: #fef2f2;
+      color: #dc2626;
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    
+    .tag-optional {
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    
+    /* ── CODE BLOCKS ── */
+    .code-wrap {
+      margin: 0 1.25rem 0.75rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #1e293b;
+      position: relative;
+      background: #2C2C2C;
+    }
+    
+    pre[class*="language-"] {
+      margin: 0 !important;
+      border-radius: 0 !important;
+      font-size: 0.75rem !important;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    
+    code[class*="language-"] {
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.75rem !important;
+    }
+    
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.3px;
+    }
+    
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
+    }
+    
+    .copy-btn.copied {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    /* ── STATUS BADGES ── */
+    .status-list {
+      margin: 0 1.25rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    
+    .status-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+    }
+    
+    .status-item.success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+    
+    .status-item.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+    
+    .status-item.warn {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+    }
+    
+    .status-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+    
+    .status-item.success .status-code {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .status-item.error .status-code {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .status-item.warn .status-code {
+      background: #fef9c3;
+      color: #92400e;
+    }
+    
+    .status-msg {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+    
+    /* ── TABS ── */
+    .tab-group {
+      display: flex;
+      gap: 0.15rem;
+      padding: 0.65rem 1.25rem 0;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      background: #fafcff;
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+      font-family: 'Sora', sans-serif;
+    }
+    
+    .tab-btn:hover {
+      background: #f1f5f9;
+      color: var(--text-secondary);
+    }
+    
+    .tab-btn.active {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+    
+    .tab-content {
+      padding: 0.75rem 1.25rem 1.25rem;
+    }
+    
+    .code-block {
+      display: none;
+    }
+    
+    .code-block.active {
+      display: block;
+    }
+    
+    /* ── NOTE ── */
+    .note {
+      margin: 0 1.25rem 0.75rem;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.76rem;
+      color: #92400e;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .note i {
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    
+    /* ── HEADER CODE WRAP ── */
+    .header-code {
+      margin: 0 1.25rem 0.25rem;
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.73rem;
+      color: #7dd3fc;
+      border: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-note {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .footer-note code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: #f1f5f9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+    
+    .network-tags {
+      display: flex;
+      gap: 0.3rem;
+    }
+    
+    .network-tag {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.3px;
+    }
+    
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .sidebar {
+        display: none;
+      }
+      
+      .main {
+        margin-left: 0;
+      }
+      
+      .api-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .content {
+        padding: 1.25rem;
+      }
+    }
+    
+    @media (max-width: 520px) {
+      .topbar {
+        padding: 0.75rem 1rem;
+      }
+      
+      .content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar active">
+    <div class="sidebar-brand">
+      <div class="brand-logo">OWB <span>API</span></div>
+      <div class="brand-version">v1 · Stable</div>
+    </div>
+    
+    <div class="base-url">
+      <div class="base-url-label">Base URL</div>
+      <div class="base-url-value">https://api.owb.com</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section">Authentication</div>
+      <a href="#signin" class="nav-link">
+        <span class="method-dot dot-post"></span>
+        POST /signin
+      </a>
+      
+      <div class="nav-section">Data Plans</div>
+      <a href="#data" class="nav-link">
+        <span class="method-dot dot-post"></span>
+        POST /data
+      </a>
+      <a href="#plans" class="nav-link">
+        <span class="method-dot dot-get"></span>
+        GET /plans
+      </a>
+      
+      <div class="nav-section">Airtime</div>
+      <a href="#airtime" class="nav-link">
+        <span class="method-dot dot-post"></span>
+        POST /airtime
+      </a>
+      
+      <div class="nav-section">Account</div>
+      <a href="#fund" class="nav-link">
+        <span class="method-dot dot-get"></span>
+        GET /fund
+      </a>
+    </nav>
+  </aside>
+  
+  <!-- ─── MAIN ─── -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div>
+        <div class="topbar-title">OWB API Documentation</div>
+        <div class="topbar-subtitle">Data &amp; Airtime Automation — MTN · Airtel · GLO</div>
+      </div>
+      <div class="topbar-badge"><i class="fas fa-lock" style="margin-right:5px;font-size:0.65rem;"></i>HTTPS Only</div>
+    </div>
+    
+    <div class="content">
+      <div class="api-grid">
+        
+        <!-- ── CARD 1: SIGN IN ── -->
+        <div class="card" id="signin">
+          <div class="card-header">
+            <span class="method post">POST</span>
+            <span class="endpoint">/signin</span>
+          </div>
+          <div class="card-desc"><i class="fas fa-key"></i> Authenticate and retrieve your API key and account details.</div>
+          
+          <div class="section-label"><i class="fas fa-cube"></i> Request Body</div>
+          <div class="param-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="param-name">password</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Account password</td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">identifier</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Email address or username</td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">useGmail</span></td>
+                  <td><span class="param-type">boolean</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Set <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">true</code> to authenticate with Gmail</td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">useUsername</span></td>
+                  <td><span class="param-type">boolean</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Set <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">true</code> to authenticate with username</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-code"></i> Example Request</div>
+          <div class="code-wrap">
+            <pre><code class="language-json">{
+  "password": "your_password",
+  "useGmail": true,
+  "useUsername": false,
+  "identifier": "user@example.com"
+}</code></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-circle-check"></i> Responses</div>
+          <div class="status-list">
+            <div class="status-item success">
+              <span class="status-code">200</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#166534;margin-bottom:0.3rem;">Success</div>
+                <div class="status-msg">{ "gmail": "...", "balance": 12500, "username": "john_doe", "key": "OWB_..." }</div>
+              </div>
+            </div>
+            <div class="status-item error">
+              <span class="status-code">500</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#991b1b;margin-bottom:0.3rem;">Server Error</div>
+                <div class="status-msg">{ "message": "Internal server error" }</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-group" id="signinTabs">
+            <button class="tab-btn active" data-lang="curl">cURL</button>
+            <button class="tab-btn" data-lang="js">JS/Node</button>
+            <button class="tab-btn" data-lang="java">Java</button>
+            <button class="tab-btn" data-lang="php">PHP</button>
+            <button class="tab-btn" data-lang="py">Python</button>
+          </div>
+          <div class="tab-content" id="signinCodeArea">
+            <div class="code-block active" data-lang="curl">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-bash">curl -X POST https://api.owb.com/signin \
+  -H "Content-Type: application/json" \
+  -d '{
+    "password": "your_password",
+    "useGmail": true,
+    "useUsername": false,
+    "identifier": "user@example.com"
+  }'</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="js">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-javascript">const response = await fetch('https://api.owb.com/signin', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    password: 'your_password',
+    useGmail: true,
+    useUsername: false,
+    identifier: 'user@example.com'
+  })
+});
+const data = await response.json();
+console.log(data.key); // your API key</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="java">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-java">String body = "{\"password\":\"your_password\",\"useGmail\":true," +
+              "\"useUsername\":false,\"identifier\":\"user@example.com\"}";
+
+HttpRequest request = HttpRequest.newBuilder()
+  .uri(URI.create("https://api.owb.com/signin"))
+  .header("Content-Type", "application/json")
+  .POST(HttpRequest.BodyPublishers.ofString(body))
+  .build();
+
+HttpClient.newHttpClient()
+  .sendAsync(request, HttpResponse.BodyHandlers.ofString())
+  .thenApply(HttpResponse::body)
+  .thenAccept(System.out::println);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="php">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-php">$ch = curl_init("https://api.owb.com/signin");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    "password"    => "your_password",
+    "useGmail"    => true,
+    "useUsername" => false,
+    "identifier"  => "user@example.com"
+]));
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+echo $response;</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="py">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-python">import requests
+
+resp = requests.post("https://api.owb.com/signin", json={
+    "password":    "your_password",
+    "useGmail":    True,
+    "useUsername": False,
+    "identifier":  "user@example.com"
+})
+data = resp.json()
+print("API Key:", data["key"])</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ── CARD 2: DATA PURCHASE ── -->
+        <div class="card" id="data">
+          <div class="card-header">
+            <span class="method post">POST</span>
+            <span class="endpoint">/data</span>
+          </div>
+          <div class="card-desc"><i class="fas fa-signal"></i> Purchase a data plan for MTN, Airtel, or GLO. Requires API key.</div>
+          
+          <div class="section-label"><i class="fas fa-shield-halved"></i> Authorization Header</div>
+          <div class="header-code">
+            <span>apikey: Bearer <span style="color:#a5f3fc">YOUR_API_KEY</span></span>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-cube"></i> Request Body</div>
+          <div class="param-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="param-name">network</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Network operator: <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">mtn</code> | <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">airtel</code> | <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">glo</code></td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">planId</span></td>
+                  <td><span class="param-type">integer</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Plan ID from <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">GET /plans</code></td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">phone</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>10-digit recipient phone number</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-circle-check"></i> Responses</div>
+          <div class="status-list">
+            <div class="status-item success">
+              <span class="status-code">201</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#166534;margin-bottom:0.3rem;">Purchase Successful</div>
+                <div class="status-msg">{ "message": "Purchase successful", "balance": 5380 }</div>
+              </div>
+            </div>
+            <div class="status-item error">
+              <span class="status-code">401</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#991b1b;margin-bottom:0.3rem;">Unauthorized</div>
+                <div class="status-msg">{ "message": "Please create an account or login" }</div>
+              </div>
+            </div>
+            <div class="status-item warn">
+              <span class="status-code">401</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#92400e;margin-bottom:0.3rem;">Insufficient Funds</div>
+                <div class="status-msg">{ "message": "Insufficient balance. You need ₦500 more to complete this purchase." }</div>
+              </div>
+            </div>
+            <div class="status-item error">
+              <span class="status-code">500</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#991b1b;margin-bottom:0.3rem;">Server Error</div>
+                <div class="status-msg">{ "message": "Something went wrong" }</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-group" id="dataTabs">
+            <button class="tab-btn active" data-lang="curl">cURL</button>
+            <button class="tab-btn" data-lang="js">JS/Node</button>
+            <button class="tab-btn" data-lang="java">Java</button>
+            <button class="tab-btn" data-lang="php">PHP</button>
+            <button class="tab-btn" data-lang="py">Python</button>
+          </div>
+          <div class="tab-content" id="dataCodeArea">
+            <div class="code-block active" data-lang="curl">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-bash">curl -X POST https://api.owb.com/data \
+  -H "apikey: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"network":"mtn","planId":2,"phone":"9117624342"}'</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="js">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-javascript">const response = await fetch('https://api.owb.com/data', {
+  method: 'POST',
+  headers: {
+    'apikey': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ network: "mtn", planId: 2, phone: "9117624342" })
+});
+const data = await response.json();
+console.log(data);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="java">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-java">HttpRequest request = HttpRequest.newBuilder()
+  .uri(URI.create("https://api.owb.com/data"))
+  .header("apikey", "Bearer YOUR_API_KEY")
+  .header("Content-Type", "application/json")
+  .POST(HttpRequest.BodyPublishers.ofString(
+    "{\"network\":\"mtn\",\"planId\":2,\"phone\":\"9117624342\"}"))
+  .build();</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="php">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-php">$ch = curl_init("https://api.owb.com/data");
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "apikey: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    "network" => "mtn",
+    "planId"  => 2,
+    "phone"   => "9117624342"
+]));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$resp = curl_exec($ch);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="py">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-python">import requests
+
+headers = {"apikey": "Bearer YOUR_API_KEY"}
+payload = {"network": "mtn", "planId": 2, "phone": "9117624342"}
+
+r = requests.post("https://api.owb.com/data", json=payload, headers=headers)
+print(r.status_code, r.json())</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ── CARD 3: AIRTIME ── -->
+        <div class="card" id="airtime">
+          <div class="card-header">
+            <span class="method post">POST</span>
+            <span class="endpoint">/airtime</span>
+          </div>
+          <div class="card-desc"><i class="fas fa-mobile-screen"></i> Purchase airtime (VTU) for MTN, Airtel, or GLO. Requires API key.</div>
+          
+          <div class="section-label"><i class="fas fa-shield-halved"></i> Authorization Header</div>
+          <div class="header-code">
+            <span>apikey: Bearer <span style="color:#a5f3fc">YOUR_API_KEY</span></span>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-cube"></i> Request Body</div>
+          <div class="param-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="param-name">network</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Network operator: <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">mtn</code> | <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">airtel</code> | <code style="font-family:monospace;font-size:0.72rem;background:#f1f5f9;padding:0.1rem 0.3rem;border-radius:3px">glo</code></td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">amount</span></td>
+                  <td><span class="param-type">integer</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>Airtime amount in naira (₦)</td>
+                </tr>
+                <tr>
+                  <td><span class="param-name">phone</span></td>
+                  <td><span class="param-type">string</span></td>
+                  <td><span class="tag-required">required</span></td>
+                  <td>10-digit recipient phone number</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-circle-check"></i> Responses</div>
+          <div class="status-list">
+            <div class="status-item success">
+              <span class="status-code">201</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#166534;margin-bottom:0.3rem;">Purchase Successful</div>
+                <div class="status-msg">{ "message": "Purchase successful", "balance": 5380 }</div>
+              </div>
+            </div>
+            <div class="status-item warn">
+              <span class="status-code">401</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#92400e;margin-bottom:0.3rem;">Insufficient Funds</div>
+                <div class="status-msg">{ "message": "Insufficient balance. You need ₦500 more to complete this purchase." }</div>
+              </div>
+            </div>
+            <div class="status-item error">
+              <span class="status-code">401</span>
+              <div>
+                <div style="font-size:0.75rem;font-weight:600;color:#991b1b;margin-bottom:0.3rem;">Unauthorized</div>
+                <div class="status-msg">{ "message": "Please create an account or login" }</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-group" id="airtimeTabs">
+            <button class="tab-btn active" data-lang="curl">cURL</button>
+            <button class="tab-btn" data-lang="js">JS/Node</button>
+            <button class="tab-btn" data-lang="java">Java</button>
+            <button class="tab-btn" data-lang="php">PHP</button>
+            <button class="tab-btn" data-lang="py">Python</button>
+          </div>
+          <div class="tab-content" id="airtimeCodeArea">
+            <div class="code-block active" data-lang="curl">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-bash">curl -X POST https://api.owb.com/airtime \
+  -H "apikey: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"network":"airtel","amount":50,"phone":"9117624342"}'</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="js">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-javascript">const response = await fetch('https://api.owb.com/airtime', {
+  method: 'POST',
+  headers: {
+    'apikey': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ network: "airtel", amount: 50, phone: "9117624342" })
+});
+const data = await response.json();
+console.log(data);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="java">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-java">String body = "{\"network\":\"airtel\",\"amount\":50,\"phone\":\"9117624342\"}";
+HttpRequest request = HttpRequest.newBuilder()
+  .uri(URI.create("https://api.owb.com/airtime"))
+  .header("apikey", "Bearer YOUR_API_KEY")
+  .header("Content-Type", "application/json")
+  .POST(HttpRequest.BodyPublishers.ofString(body))
+  .build();</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="php">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-php">$ch = curl_init("https://api.owb.com/airtime");
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "apikey: Bearer YOUR_API_KEY",
+    "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    "network" => "airtel",
+    "amount"  => 50,
+    "phone"   => "9117624342"
+]));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="py">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-python">import requests
+
+r = requests.post(
+    "https://api.owb.com/airtime",
+    json={"network": "airtel", "amount": 50, "phone": "9117624342"},
+    headers={"apikey": "Bearer YOUR_API_KEY"}
+)
+print(r.status_code, r.json())</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ── CARD 4: GET PLANS ── -->
+        <div class="card" id="plans">
+          <div class="card-header">
+            <span class="method get">GET</span>
+            <span class="endpoint">/plans</span>
+          </div>
+          <div class="card-desc"><i class="fas fa-list"></i> Retrieve all available data plans for MTN, Airtel, and GLO. No authentication required.</div>
+          
+          <div class="section-label"><i class="fas fa-circle-check"></i> Response 200</div>
+          <div class="code-wrap" style="margin:0 1.25rem 0.75rem">
+            <pre><code class="language-json">{
+  "mtn": [{
+    "networkId": 1,
+    "network": "mtn",
+    "data": "3GB",
+    "days": 6,
+    "id": 2,
+    "type": "sme",
+    "extra": "1.5GB night bonus"
+  }],
+  "airtel": [{
+    "networkId": 2,
+    "network": "airtel",
+    "data": "3GB",
+    "days": 6,
+    "id": 2,
+    "type": "CG"
+  }],
+  "glo": [{
+    "networkId": 3,
+    "network": "glo",
+    "data": "3GB",
+    "days": 6,
+    "id": 2,
+    "type": "gifting"
+  }]
+}</code></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          
+          <div class="tab-group" id="plansTabs">
+            <button class="tab-btn active" data-lang="curl">cURL</button>
+            <button class="tab-btn" data-lang="js">JS/Node</button>
+            <button class="tab-btn" data-lang="java">Java</button>
+            <button class="tab-btn" data-lang="php">PHP</button>
+            <button class="tab-btn" data-lang="py">Python</button>
+          </div>
+          <div class="tab-content" id="plansCodeArea">
+            <div class="code-block active" data-lang="curl">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-bash">curl -X GET https://api.owb.com/plans</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="js">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-javascript">const response = await fetch('https://api.owb.com/plans');
+const plans = await response.json();
+console.log(plans.mtn); // MTN plans</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="java">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-java">HttpRequest request = HttpRequest.newBuilder()
+  .uri(URI.create("https://api.owb.com/plans"))
+  .GET()
+  .build();
+
+HttpClient.newHttpClient()
+  .sendAsync(request, HttpResponse.BodyHandlers.ofString())
+  .thenApply(HttpResponse::body)
+  .thenAccept(System.out::println);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="php">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-php">$plans = json_decode(
+    file_get_contents("https://api.owb.com/plans"),
+    true
+);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="py">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-python">import requests
+
+plans = requests.get("https://api.owb.com/plans").json()
+print(plans["mtn"])  # MTN plans</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ── CARD 5: FUND / BALANCE ── -->
+        <div class="card" id="fund">
+          <div class="card-header">
+            <span class="method get">GET</span>
+            <span class="endpoint">/fund</span>
+          </div>
+          <div class="card-desc"><i class="fas fa-wallet"></i> Retrieve your current wallet balance in naira (₦). Requires API key.</div>
+          
+          <div class="section-label"><i class="fas fa-shield-halved"></i> Authorization Header</div>
+          <div class="header-code">
+            <span>apikey: Bearer <span style="color:#a5f3fc">YOUR_API_KEY</span></span>
+          </div>
+          
+          <div class="section-label"><i class="fas fa-circle-check"></i> Response 200</div>
+          <div class="code-wrap" style="margin:0 1.25rem 0.5rem">
+            <pre><code class="language-json">12000</code></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+          <div class="note">
+            <i class="fas fa-triangle-exclamation"></i>
+            The response is a plain integer representing your current NGN wallet balance, not a JSON object.
+          </div>
+          
+          <div class="tab-group" id="fundTabs">
+            <button class="tab-btn active" data-lang="curl">cURL</button>
+            <button class="tab-btn" data-lang="js">JS/Node</button>
+            <button class="tab-btn" data-lang="java">Java</button>
+            <button class="tab-btn" data-lang="php">PHP</button>
+            <button class="tab-btn" data-lang="py">Python</button>
+          </div>
+          <div class="tab-content" id="fundCodeArea">
+            <div class="code-block active" data-lang="curl">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-bash">curl -X GET https://api.owb.com/fund \
+  -H "apikey: Bearer YOUR_API_KEY"</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="js">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-javascript">const response = await fetch('https://api.owb.com/fund', {
+  headers: { 'apikey': 'Bearer YOUR_API_KEY' }
+});
+const balance = await response.text();
+console.log("Balance: ₦" + balance);</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="java">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-java">HttpRequest request = HttpRequest.newBuilder()
+  .uri(URI.create("https://api.owb.com/fund"))
+  .header("apikey", "Bearer YOUR_API_KEY")
+  .GET()
+  .build();
+
+HttpClient.newHttpClient()
+  .sendAsync(request, HttpResponse.BodyHandlers.ofString())
+  .thenApply(HttpResponse::body)
+  .thenAccept(b -> System.out.println("Balance: ₦" + b));</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="php">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-php">$ch = curl_init("https://api.owb.com/fund");
+curl_setopt($ch, CURLOPT_HTTPHEADER, ["apikey: Bearer YOUR_API_KEY"]);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$balance = curl_exec($ch);
+echo "Balance: ₦" . $balance;</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+            <div class="code-block" data-lang="py">
+              <div class="code-wrap" style="margin:0">
+                <pre><code class="language-python">import requests
+
+resp = requests.get(
+    "https://api.owb.com/fund",
+    headers={"apikey": "Bearer YOUR_API_KEY"}
+)
+print("Balance: ₦" + resp.text)</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div><!-- /api-grid -->
+      
+      <footer>
+        <div class="footer-note">
+          <i class="fas fa-circle-info" style="color:var(--text-muted)"></i>
+          Replace <code>YOUR_API_KEY</code> with the <code>key</code> field from the <code>/signin</code> response.
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+          <span style="font-size:0.72rem;color:var(--text-muted)">Supported networks</span>
+          <div class="network-tags">
+            <span class="network-tag">mtn</span>
+            <span class="network-tag">airtel</span>
+            <span class="network-tag">glo</span>
+          </div>
+        </div>
+        <div class="footer-note">
+          <i class="fas fa-mobile-screen" style="color:var(--text-muted)"></i>
+          Phone numbers must be 10-digit format (without country code)
+        </div>
+      </footer>
+      
+    </div><!-- /content -->
+  </div><!-- /main -->
+  
+  <script>
+    // ─── TAB SWITCHING ───
+    function initTabs(tabGroupId, codeAreaId) {
+      const tabGroup = document.getElementById(tabGroupId);
+      if (!tabGroup) return;
+      const codeArea = document.getElementById(codeAreaId);
+      if (!codeArea) return;
+      
+      tabGroup.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabGroup.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const lang = btn.dataset.lang;
+          codeArea.querySelectorAll('.code-block').forEach(block => {
+            block.classList.toggle('active', block.dataset.lang === lang);
+          });
+          
+          // Re-highlight
+          codeArea.querySelectorAll('.code-block.active pre code').forEach(el => {
+            Prism.highlightElement(el);
+          });
+        });
+      });
+    }
+    
+    initTabs('signinTabs', 'signinCodeArea');
+    initTabs('dataTabs', 'dataCodeArea');
+    initTabs('airtimeTabs', 'airtimeCodeArea');
+    initTabs('plansTabs', 'plansCodeArea');
+    initTabs('fundTabs', 'fundCodeArea');
+    
+    // ─── COPY BUTTON ───
+    function copyCode(btn) {
+      const pre = btn.closest('.code-wrap').querySelector('pre');
+      const text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    }
+    
+    // ─── ACTIVE NAV LINK ───
+    const navLinks = document.querySelectorAll('.nav-link');
+    const cards = document.querySelectorAll('.card[id]');
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    
+    cards.forEach(card => observer.observe(card));
+    
+    function toggleSidebar() {
+//      document.querySelector('.sidebar').classList.toggle('active');
+      //document.body.classList.toggle('sidebar-open');
+    }
+  </script>
+  
+</body>
+
+</html>
